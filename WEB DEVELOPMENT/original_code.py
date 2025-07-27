@@ -194,6 +194,7 @@ def get_bus_fares():
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
     }
+<<<<<<< HEAD
 
     def scrape_tab(soup, tab_id):
         fare_dict = {}
@@ -257,6 +258,70 @@ def get_bus_fares():
     FARE_CACHE = (ordinary_fares, express_fares)
     return FARE_CACHE
 
+=======
+
+    def scrape_tab(soup, tab_id):
+        fare_dict = {}
+        tab = soup.find('div', id=tab_id)
+        if not tab:
+            return fare_dict
+        container = tab.find('div', class_='col-md-12')
+        if not container:
+            return fare_dict
+        for div in container.find_all('div', class_=lambda x: x and x.startswith('stage')):
+            if 'end' in div.get('class', []):
+                break
+            stage_text = div.find(string=True, recursive=False)
+            if not stage_text:
+                continue
+            try:
+                stage_num = int(stage_text.strip())
+            except ValueError:
+                continue
+            rate_span = div.find('span', class_='rate')
+            if not rate_span:
+                continue
+            try:
+                fare = float(rate_span.text.strip())
+            except ValueError:
+                continue
+            fare_dict[stage_num] = fare
+        return fare_dict
+
+    # Retry logic
+    for attempt in range(3):
+        try:
+            print(f"Fetching fare information (Attempt {attempt+1})...")
+            response = requests.get(base_url, headers=headers, verify=False, timeout=15)
+            response.raise_for_status()
+            soup = BeautifulSoup(response.content, 'html.parser')
+            ordinary_fares = scrape_tab(soup, "tab0")
+            express_fares = scrape_tab(soup, "tab3")
+
+            if ordinary_fares and express_fares:
+                FARE_CACHE = (ordinary_fares, express_fares)
+                return FARE_CACHE
+            else:
+                print("Incomplete fare data, retrying...")
+        except Exception as e:
+            print(f"Attempt {attempt+1} failed: {str(e)}")
+            time.sleep(2 ** attempt)  # Exponential backoff
+
+    # Fallback fare values if scraping fails
+    print("All attempts failed. Using fallback fare table.")
+    ordinary_fares = {
+        1: 5, 2: 7, 3: 8, 4: 10, 5: 12, 6: 14, 7: 15, 8: 17,
+        9: 18, 10: 20, 11: 22, 12: 23, 13: 25, 14: 27, 15: 28,
+        16: 30, 17: 32, 18: 33, 19: 35, 20: 37, 21: 38, 22: 40
+    }
+    express_fares = {
+        1: 10, 2: 15, 3: 20, 4: 25, 5: 30, 6: 35, 7: 40, 8: 45,
+        9: 50, 10: 55, 11: 60, 12: 65, 13: 70, 14: 75, 15: 80,
+        16: 85, 17: 90, 18: 95, 19: 100, 20: 105, 21: 110, 22: 115
+    }
+    FARE_CACHE = (ordinary_fares, express_fares)
+    return FARE_CACHE
+>>>>>>> 4c4a318ab140b696a5b4e1df3c035cdb4948131c
 
 def get_fare(stages, fare_dict, max_stage):
     """Calculate fare based on stages"""
