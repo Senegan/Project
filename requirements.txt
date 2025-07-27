@@ -1,0 +1,11 @@
+flask
+requests
+beautifulsoup4
+selenium
+geopy
+overpy
+fuzzywuzzy
+python-Levenshtein
+PyPDF2
+urllib3
+webdriver-manager
