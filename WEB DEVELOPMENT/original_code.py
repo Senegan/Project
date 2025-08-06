@@ -1932,20 +1932,7 @@ INDEX_HTML = """
                 <i class="fas fa-search-location mr-2"></i> Find Your Route
             </button>
         </form>
-        <div class="text-center mt-6">
-            <p class="text-gray-500 text-sm">Powered by <a href="https://x.ai" target="_blank" class="text-amber-600 hover:underline">xAI</a></p>
-            <div class="flex justify-center space-x-4 mt-3">
-                <a href="https://x.com" target="_blank" class="text-gray-600 hover:text-amber-500 transition">
-                    <i class="fab fa-x-twitter"></i>
-                </a>
-                <a href="https://facebook.com" target="_blank" class="text-gray-600 hover:text-amber-500 transition">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://instagram.com" target="_blank" class="text-gray-600 hover:text-amber-500 transition">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </div>
-        </div>
+        
     </div>
 </body>
 </html>

@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniGuide - Walmart Sparkathon Demo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0071dc;
+            --secondary: #ffc220;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --success: #28a745;
+            --danger: #dc3545;
+            --warning: #ffc107;
+            --info: #17a2b8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #004e92);
+            color: var(--light);
+            min-height: 100vh;
+            padding-top: 70px;
+        }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--light);
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: none;
+        }
+        
+        .section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .section-header i {
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+        
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--light);
+        }
+        
+        /* AR Navigation Section */
+        .ar-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .ar-controls {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .ar-view {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(45deg, #0f2027, #203a43, #2c5364);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .ar-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .ar-path {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .ar-products {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .product-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            width: 150px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .product-card.active {
+            border-color: var(--secondary);
+        }
+        
+        .product-card img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 10px;
+            background: white;
+            border-radius: 10px;
+            padding: 5px;
+        }
+        
+        /* Staff Assistant Section */
+        .staff-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .staff-dashboard {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .task-list {
+            margin-top: 20px;
+        }
+        
+        .task-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .task-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .task-item.active {
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .task-priority {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        
+        .priority-high {
+            background: var(--danger);
+        }
+        
+        .priority-medium {
+            background: var(--warning);
+        }
+        
+        .priority-low {
+            background: var(--success);
+        }
+        
+        /* Chatbot */
+        .chat-container {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 15px;
+            max-width: 80%;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .message.bot {
+            background: rgba(0, 113, 220, 0.3);
+            align-self: flex-start;
+            border-bottom-left-radius: 0;
+        }
+        
+        .message.user {
+            background: rgba(255, 255, 255, 0.2);
+            align-self: flex-end;
+            margin-left: auto;
+            border-bottom-right-radius: 0;
+        }
+        
+        .chat-input {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 12px 15px;
+            border-radius: 50px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+        }
+        
+        .chat-input button {
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: none;
+            background: var(--primary);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .chat-input button:hover {
+            background: var(--secondary);
+            color: var(--dark);
+        }
+        
+        /* Buttons */
+        .btn {
+            padding: 12px 25px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 113, 220, 0.3);
+            margin-top: 15px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 113, 220, 0.5);
+        }
+        
+        .btn.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            box-shadow: none;
+        }
+        
+        .btn.secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Stats */
+        .stats {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Checkout Layout */
+        .checkout-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .scanner-section {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .cart-section {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Scanner Area */
+        .scanner-area {
+            height: 300px;
+            border-radius: 15px;
+            background: linear-gradient(45deg, #0f2027, #203a43, #2c5364);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .scanner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .scanner-animation {
+            width: 80%;
+            height: 4px;
+            background: var(--secondary);
+            box-shadow: 0 0 15px var(--secondary);
+            position: absolute;
+            top: 50%;
+            animation: scan 2s infinite linear;
+        }
+        
+        .camera-feed {
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1605733513597-a8f8341084e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;
+        }
+        
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .product-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .product-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .product-item img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            margin-bottom: 10px;
+            background: white;
+            border-radius: 10px;
+            padding: 5px;
+        }
+        
+        .product-item p {
+            font-size: 0.9rem;
+        }
+        
+        /* Cart Items */
+        .cart-items {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+        
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .cart-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            background: white;
+            border-radius: 8px;
+            padding: 5px;
+        }
+        
+        .item-details {
+            flex: 1;
+        }
+        
+        .item-details h4 {
+            margin-bottom: 5px;
+        }
+        
+        .item-price {
+            font-weight: bold;
+            color: var(--secondary);
+        }
+        
+        .item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: none;
+            background: var(--primary);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        /* Verification Status */
+        .verification-status {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .verification-icon {
+            font-size: 1.5rem;
+        }
+        
+        /* Payment Summary */
+        .payment-summary {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .total-row {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 2px solid var(--primary);
+        }
+        
+        /* Lane Status */
+        .lane-status {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 25px;
+        }
+        
+        .lane-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .lane-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .lane-indicator {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+        }
+        
+        .lane-free {
+            background: var(--success);
+        }
+        
+        .lane-busy {
+            background: var(--warning);
+        }
+        
+        .lane-full {
+            background: var(--danger);
+        }
+        
+        /* Animations */
+        @keyframes scan {
+            0% { top: 10%; }
+            50% { top: 90%; }
+            100% { top: 10%; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .ar-container, .staff-container, .checkout-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-glasses"></i>
+            <h1>OmniGuide</h1>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="active" data-section="home"><i class="fas fa-home"></i> Home</a>
+            <a href="#" data-section="ar"><i class="fas fa-map-marked-alt"></i> AR Navigation</a>
+            <a href="#" data-section="staff"><i class="fas fa-robot"></i> Staff Assistant</a>
+            <a href="#" data-section="checkout"><i class="fas fa-cash-register"></i> Frictionless Checkout</a>
+            <a href="#" data-section="chat"><i class="fas fa-comments"></i> AI Assistant</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Home Section -->
+        <div class="section active" id="home">
+            <div class="section-header">
+                <i class="fas fa-home"></i>
+                <h2>OmniGuide Retail Experience</h2>
+            </div>
+            <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 25px;">
+                OmniGuide revolutionizes the retail experience by integrating AR navigation, AI staff assistance, and frictionless checkout. 
+                This Walmart Sparkathon solution addresses critical customer pain points identified in over 1,872 customer complaints.
+            </p>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-value">65%</div>
+                    <div class="stat-label">Faster Product Discovery</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">90%</div>
+                    <div class="stat-label">Faster Issue Resolution</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">80%</div>
+                    <div class="stat-label">Reduced Checkout Time</div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 15px; border-left: 4px solid var(--secondary);">
+                    <h3 style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                        <i class="fas fa-map-marked-alt"></i> AR Navigation
+                    </h3>
+                    <p>Guides customers to products with real-time shelf auditing to prevent "ghost inventory" issues.</p>
+                    <button class="btn" data-section="ar">
+                        <i class="fas fa-play"></i> Try AR Demo
+                    </button>
+                </div>
+                
+                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 15px; border-left: 4px solid var(--primary);">
+                    <h3 style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                        <i class="fas fa-robot"></i> Staff Assistant
+                    </h3>
+                    <p>Empowers associates with AI tools for faster issue resolution and task management.</p>
+                    <button class="btn" data-section="staff">
+                        <i class="fas fa-play"></i> Staff Demo
+                    </button>
+                </div>
+                
+                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 15px; border-left: 4px solid var(--success);">
+                    <h3 style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                        <i class="fas fa-cash-register"></i> Frictionless Checkout
+                    </h3>
+                    <p>Scan-and-go technology with AI verification reduces checkout time by 80%.</p>
+                    <button class="btn" data-section="checkout">
+                        <i class="fas fa-play"></i> Checkout Demo
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- AR Navigation Section -->
+        <div class="section" id="ar">
+            <div class="section-header">
+                <i class="fas fa-map-marked-alt"></i>
+                <h2>AR Navigation & Shelf Auditing</h2>
+            </div>
+            
+            <div class="ar-container">
+                <div class="ar-controls">
+                    <h3 style="margin-bottom: 15px;">Find Your Products</h3>
+                    <p style="margin-bottom: 20px;">Select a product to navigate to its location with real-time shelf auditing.</p>
+                    
+                    <div class="ar-products">
+                        <div class="product-card" data-product="pampers">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3081/3081982.png" alt="Baby Formula">
+                            <p>Baby Formula</p>
+                        </div>
+                        <div class="product-card" data-product="tv">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3618/3618901.png" alt="TV">
+                            <p>4K Smart TV</p>
+                        </div>
+                        <div class="product-card" data-product="laptop">
+                            <img src="https://cdn-icons-png.flaticon.com/512/528/528101.png" alt="Laptop">
+                            <p>Gaming Laptop</p>
+                        </div>
+                        <div class="product-card" data-product="headphones">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2933/2933245.png" alt="Headphones">
+                            <p>Wireless Headphones</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <h3 style="margin-bottom: 15px;">How It Works</h3>
+                        <ul style="padding-left: 20px; line-height: 1.8;">
+                            <li>Real-time inventory sync with shelf sensors</li>
+                            <li>AR navigation shows the fastest route to products</li>
+                            <li>Automated alerts for out-of-stock items</li>
+                            <li>Staff notifications for restocking needs</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="btn" id="start-ar">
+                        <i class="fas fa-play"></i> Start AR Navigation
+                    </button>
+                </div>
+                
+                <div class="ar-view">
+                    <div class="ar-overlay">
+                        <h3 style="font-size: 1.8rem; margin-bottom: 15px;"><i class="fas fa-vr-cardboard"></i> AR Navigation</h3>
+                        <p>Select a product to begin navigation</p>
+                        <p style="margin-top: 20px; font-size: 5rem;"><i class="fas fa-location-arrow"></i></p>
+                    </div>
+                    <div class="ar-path">
+                        <i class="fas fa-route"></i> 
+                        <span id="path-info">Select a product to see path</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Staff Assistant Section -->
+        <div class="section" id="staff">
+            <div class="section-header">
+                <i class="fas fa-robot"></i>
+                <h2>AI Staff Assistant</h2>
+            </div>
+            
+            <div class="staff-container">
+                <div class="staff-dashboard">
+                    <h3 style="margin-bottom: 20px;">Task Dashboard</h3>
+                    
+                    <div class="task-list">
+                        <div class="task-item active" data-task="restock">
+                            <div class="task-priority priority-high"></div>
+                            <div>
+                                <h4>Restock Baby Formula</h4>
+                                <p>Aisle G7 - Shelf 4 (Out of Stock)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="task-item" data-task="price">
+                            <div class="task-priority priority-medium"></div>
+                            <div>
+                                <h4>Price Check Request</h4>
+                                <p>Aisle E3 - Coffee Maker</p>
+                            </div>
+                        </div>
+                        
+                        <div class="task-item" data-task="assist">
+                            <div class="task-priority priority-low"></div>
+                            <div>
+                                <h4>Customer Assistance</h4>
+                                <p>Electronics Section</p>
+                            </div>
+                        </div>
+                        
+                        <div class="task-item" data-task="clean">
+                            <div class="task-priority priority-low"></div>
+                            <div>
+                                <h4>Spill Cleanup</h4>
+                                <p>Aisle B2 - Near Dairy Section</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <h3 style="margin-bottom: 15px;">Staff Analytics</h3>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <div style="flex: 1; min-width: 120px; background: rgba(0,0,0,0.5); padding: 10px; border-radius: 10px; text-align: center;">
+                                <div style="font-size: 1.8rem; font-weight: bold;">4.2★</div>
+                                <div>Avg. Rating</div>
+                            </div>
+                            <div style="flex: 1; min-width: 120px; background: rgba(0,0,0,0.5); padding: 10px; border-radius: 10px; text-align: center;">
+                                <div style="font-size: 1.8rem; font-weight: bold;">92%</div>
+                                <div>Tasks Completed</div>
+                            </div>
+                            <div style="flex: 1; min-width: 120px; background: rgba(0,0,0,0.5); padding: 10px; border-radius: 10px; text-align: center;">
+                                <div style="font-size: 1.8rem; font-weight: bold;">2.1m</div>
+                                <div>Avg. Res. Time</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="flex: 2; min-width: 300px;">
+                    <div style="background: rgba(0,0,0,0.3); border-radius: 15px; padding: 20px; height: 100%;">
+                        <h3 style="margin-bottom: 20px;">Task Details</h3>
+                        <div id="task-detail">
+                            <h4>Restock Baby Formula</h4>
+                            <p><strong>Location:</strong> Aisle G7, Shelf 4</p>
+                            <p><strong>Status:</strong> <span style="color: var(--danger);">Out of Stock</span></p>
+                            <p><strong>Backroom Stock:</strong> 24 units (Bay 12)</p>
+                            <p><strong>Optimal Route:</strong> 45 seconds</p>
+                            
+                            <div style="margin-top: 20px; background: rgba(0,0,0,0.5); padding: 15px; border-radius: 10px;">
+                                <h4>AI Recommendations</h4>
+                                <p>• Suggest similar product to customer while restocking</p>
+                                <p>• Check expiration dates on existing stock</p>
+                                <p>• Notify customer when restocked</p>
+                            </div>
+                            
+                            <button class="btn" style="margin-top: 20px;">
+                                <i class="fas fa-check"></i> Mark as Complete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Frictionless Checkout Section -->
+        <div class="section" id="checkout">
+            <div class="section-header">
+                <i class="fas fa-cash-register"></i>
+                <h2>Frictionless Checkout Experience</h2>
+            </div>
+            <p style="margin-bottom: 20px; font-size: 1.1rem;">
+                OmniGuide's Scan & Go 2.0 technology with AI verification reduces checkout time by 80%. 
+                Simply scan items as you shop and walk out when done - no waiting in lines!
+            </p>
+            
+            <div class="checkout-container">
+                <div class="scanner-section">
+                    <div class="scanner-area">
+                        <div class="camera-feed"></div>
+                        <div class="scanner-overlay">
+                            <h3><i class="fas fa-camera"></i> AI Verification Active</h3>
+                            <p>Scan items to automatically add to your cart</p>
+                            <div class="scanner-animation"></div>
+                            <div id="verification-status" style="margin-top: 20px; padding: 10px; border-radius: 10px; background: rgba(0,0,0,0.5);">
+                                <i class="fas fa-check-circle" style="color: var(--success);"></i> Ready to scan
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-bottom: 15px;">Available Products</h3>
+                    <div class="products-grid">
+                        <div class="product-item" data-id="1" data-name="Organic Milk" data-price="3.99" data-img="https://cdn-icons-png.flaticon.com/512/2674/2674585.png">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2674/2674585.png" alt="Milk">
+                            <p>Organic Milk</p>
+                            <p>$3.99</p>
+                        </div>
+                        <div class="product-item" data-id="2" data-name="Whole Wheat Bread" data-price="2.49" data-img="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="Bread">
+                            <p>Whole Wheat Bread</p>
+                            <p>$2.49</p>
+                        </div>
+                        <div class="product-item" data-id="3" data-name="Fresh Eggs" data-price="4.29" data-img="https://cdn-icons-png.flaticon.com/512/2674/2674588.png">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2674/2674588.png" alt="Eggs">
+                            <p>Fresh Eggs</p>
+                            <p>$4.29</p>
+                        </div>
+                        <div class="product-item" data-id="4" data-name="Baby Formula" data-price="18.99" data-img="https://cdn-icons-png.flaticon.com/512/3081/3081982.png">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3081/3081982.png" alt="Formula">
+                            <p>Baby Formula</p>
+                            <p>$18.99</p>
+                        </div>
+                        <div class="product-item" data-id="5" data-name="Organic Bananas" data-price="0.49" data-img="https://cdn-icons-png.flaticon.com/512/2909/2909761.png">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2909/2909761.png" alt="Bananas">
+                            <p>Organic Bananas</p>
+                            <p>$0.49/lb</p>
+                        </div>
+                        <div class="product-item" data-id="6" data-name="Ground Coffee" data-price="8.99" data-img="https://cdn-icons-png.flaticon.com/512/924/924514.png">
+                            <img src="https://cdn-icons-png.flaticon.com/512/924/924514.png" alt="Coffee">
+                            <p>Ground Coffee</p>
+                            <p>$8.99</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cart-section">
+                    <h3 style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-shopping-cart"></i> Your Cart
+                    </h3>
+                    
+                    <div class="verification-status">
+                        <div class="verification-icon">
+                            <i class="fas fa-check-circle" style="color: var(--success);"></i>
+                        </div>
+                        <div>
+                            <h4>AI Verification Complete</h4>
+                            <p>All items verified by ceiling cameras</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cart-items">
+                        <!-- Cart items will be dynamically added here -->
+                    </div>
+                    
+                    <div class="payment-summary">
+                        <div class="summary-row">
+                            <span>Subtotal (0 items):</span>
+                            <span>$0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax:</span>
+                            <span>$0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Savings:</span>
+                            <span style="color: var(--success);">-$0.00</span>
+                        </div>
+                        <div class="summary-row total-row">
+                            <span>Total:</span>
+                            <span>$0.00</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn" id="checkout-btn">
+                        <i class="fas fa-wallet"></i> Complete Payment
+                    </button>
+                    <button class="btn secondary">
+                        <i class="fas fa-qrcode"></i> Generate QR Code
+                    </button>
+                    
+                    <div class="lane-status">
+                        <div class="lane-header">
+                            <h4><i class="fas fa-signal"></i> Lane Availability</h4>
+                            <span>Updated: Just now</span>
+                        </div>
+                        <div class="lane-item">
+                            <div class="lane-indicator lane-free"></div>
+                            <div>Self-Checkout 1</div>
+                            <div style="margin-left: auto;">0 waiting</div>
+                        </div>
+                        <div class="lane-item">
+                            <div class="lane-indicator lane-busy"></div>
+                            <div>Self-Checkout 2</div>
+                            <div style="margin-left: auto;">2 waiting</div>
+                        </div>
+                        <div class="lane-item">
+                            <div class="lane-indicator lane-full"></div>
+                            <div>Lane 5</div>
+                            <div style="margin-left: auto;">5 waiting</div>
+                        </div>
+                        <div class="lane-item">
+                            <div class="lane-indicator lane-free"></div>
+                            <div>Lane 8</div>
+                            <div style="margin-left: auto;">0 waiting</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Chatbot Section -->
+        <div class="section" id="chat">
+            <div class="section-header">
+                <i class="fas fa-comments"></i>
+                <h2>AI Shopping Assistant</h2>
+            </div>
+            
+            <div class="chat-container">
+                <div class="chat-messages">
+                    <div class="message bot">
+                        <p>Hello! I'm your Walmart AI assistant. How can I help you today?</p>
+                    </div>
+                    <div class="message bot">
+                        <p>You can ask me about products, store locations, hours, or assistance with your order.</p>
+                    </div>
+                </div>
+                
+                <div class="chat-input">
+                    <input type="text" id="chat-input" placeholder="Type your message here...">
+                    <button id="send-message"><i class="fas fa-paper-plane"></i> Send</button>
+                </div>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <h3>Try asking:</h3>
+                <div style="display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap;">
+                    <button class="btn secondary quick-question" data-question="Where can I find baby formula?">Baby formula location</button>
+                    <button class="btn secondary quick-question" data-question="Is the 4K TV in stock?">TV stock status</button>
+                    <button class="btn secondary quick-question" data-question="What are your hours today?">Store hours</button>
+                    <button class="btn secondary quick-question" data-question="Help with my order">Order help</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation functionality
+        document.querySelectorAll('.nav-links a, .btn[data-section]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetSection = this.getAttribute('data-section');
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-links a').forEach(a => {
+                    a.classList.remove('active');
+                });
+                
+                this.classList.add('active');
+                
+                // Show target section
+                document.querySelectorAll('.section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(targetSection).classList.add('active');
+            });
+        });
+        
+        // AR Navigation
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.product-card').forEach(c => {
+                    c.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                const product = this.getAttribute('data-product');
+                let productName, aisle, distance;
+                
+                switch(product) {
+                    case 'pampers':
+                        productName = 'Baby Formula';
+                        aisle = 'G7';
+                        distance = '120 ft';
+                        break;
+                    case 'tv':
+                        productName = '4K Smart TV';
+                        aisle = 'E5';
+                        distance = '220 ft';
+                        break;
+                    case 'laptop':
+                        productName = 'Gaming Laptop';
+                        aisle = 'F3';
+                        distance = '180 ft';
+                        break;
+                    case 'headphones':
+                        productName = 'Wireless Headphones';
+                        aisle = 'F4';
+                        distance = '190 ft';
+                        break;
+                }
+                
+                document.getElementById('path-info').textContent = `${productName} - Aisle ${aisle} (${distance})`;
+                document.querySelector('.ar-overlay').innerHTML = `
+                    <h3 style="font-size: 1.8rem; margin-bottom: 15px;"><i class="fas fa-vr-cardboard"></i> Navigating to ${productName}</h3>
+                    <p>Follow the AR path to Aisle ${aisle}</p>
+                    <div style="margin-top: 30px; font-size: 3rem;"><i class="fas fa-arrow-right"></i></div>
+                    <div style="margin-top: 20px; background: rgba(0,0,0,0.5); padding: 10px; border-radius: 10px;">
+                        Distance: ${distance} • Estimated: 1 min
+                    </div>
+                `;
+            });
+        });
+        
+        document.getElementById('start-ar').addEventListener('click', function() {
+            const activeProduct = document.querySelector('.product-card.active');
+            if(!activeProduct) {
+                alert('Please select a product first');
+                return;
+            }
+            
+            document.querySelector('.ar-overlay').innerHTML = `
+                <h3 style="font-size: 1.8rem; margin-bottom: 15px;"><i class="fas fa-check-circle" style="color: #28a745;"></i> Navigation Started</h3>
+                <p>Follow the path to your product</p>
+                <div style="margin-top: 30px; font-size: 5rem;"><i class="fas fa-location-arrow" style="color: #00c9ff;"></i></div>
+                <div style="margin-top: 20px; background: rgba(0,0,0,0.5); padding: 10px; border-radius: 10px;">
+                    Turn right at Aisle C3
+                </div>
+            `;
+        });
+        
+        // Staff Assistant
+        document.querySelectorAll('.task-item').forEach(task => {
+            task.addEventListener('click', function() {
+                document.querySelectorAll('.task-item').forEach(t => {
+                    t.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                const taskType = this.getAttribute('data-task');
+                let taskDetail = '';
+                
+                switch(taskType) {
+                    case 'restock':
+                        taskDetail = `
+                            <h4>Restock Baby Formula</h4>
+                            <p><strong>Location:</strong> Aisle G7, Shelf 4</p>
+                            <p><strong>Status:</strong> <span style="color: var(--danger);">Out of Stock</span></p>
+                            <p><strong>Backroom Stock:</strong> 24 units (Bay 12)</p>
+                            <p><strong>Optimal Route:</strong> 45 seconds</p>
+                            
+                            <div style="margin-top: 20px; background: rgba(0,0,0,0.5); padding: 15px; border-radius: 10px;">
+                                <h4>AI Recommendations</h4>
+                                <p>• Suggest similar product to customer while restocking</p>
+                                <p>• Check expiration dates on existing stock</p>
+                                <p>• Notify customer when restocked</p>
+                            </div>
+                            
+                            <button class="btn" style="margin-top: 20px;">
+                                <i class="fas fa-check"></i> Mark as Complete
+                            </button>
+                        `;
+                        break;
+                    case 'price':
+                        taskDetail = `
+                            <h4>Price Check Request</h4>
+                            <p><strong>Location:</strong> Aisle E3 - Coffee Maker</p>
+                            <p><strong>Customer:</strong> Sarah Johnson</p>
+                            <p><strong>Product:</strong> Deluxe Coffee Maker (SKU: CM-3456)</p>
+                            <p><strong>Listed Price:</strong> $89.99</p>
+                            
+                            <div style="margin-top: 20px; background: rgba(0,0,0,0.5); padding: 15px; border-radius: 10px;">
+                                <h4>AI Recommendations</h4>
+                                <p>• Verify price with barcode scanner</p>
+                                <p>• Offer $5 coupon if price discrepancy</p>
+                                <p>• Suggest similar models on sale</p>
+                            </div>
+                            
+                            <button class="btn" style="margin-top: 20px;">
+                                <i class="fas fa-check"></i> Mark as Complete
+                            </button>
+                        `;
+                        break;
+                    case 'assist':
+                        taskDetail = `
+                            <h4>Customer Assistance</h4>
+                            <p><strong>Location:</strong> Electronics Section</p>
+                            <p><strong>Customer:</strong> Robert Davis</p>
+                            <p><strong>Request:</strong> Help setting up new TV</p>
+                            <p><strong>Wait Time:</strong> 8 minutes</p>
+                            
+                            <div style="margin-top: 20px; background: rgba(0,0,0,0.5); padding: 15px; border-radius: 10px;">
+                                <h4>AI Recommendations</h4>
+                                <p>• Bring TV setup guide tablet</p>
+                                <p>• Check warranty status</p>
+                                <p>• Offer installation service</p>
+                            </div>
+                            
+                            <button class="btn" style="margin-top: 20px;">
+                                <i class="fas fa-check"></i> Mark as Complete
+                            </button>
+                        `;
+                        break;
+                }
+                
+                document.getElementById('task-detail').innerHTML = taskDetail;
+            });
+        });
+        
+        // Chatbot functionality
+        const chatMessages = document.querySelector('.chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const sendButton = document.getElementById('send-message');
+        
+        function addMessage(text, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.classList.add(isUser ? 'user' : 'bot');
+            messageDiv.innerHTML = `<p>${text}</p>`;
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        function processMessage(message) {
+            const lowerMsg = message.toLowerCase();
+            
+            // Simulate AI responses
+            if (lowerMsg.includes('hello') || lowerMsg.includes('hi') || lowerMsg.includes('hey')) {
+                return "Hello! How can I assist you today?";
+            } else if (lowerMsg.includes('formula') || lowerMsg.includes('baby')) {
+                return "Baby formula is located in Aisle G7. We currently have Enfamil and Similac in stock. Would you like me to guide you there?";
+            } else if (lowerMsg.includes('tv') || lowerMsg.includes('television')) {
+                return "Our 4K Smart TVs are in Aisle E5. We have models from Samsung, LG, and Sony available. The 55-inch Samsung model is on sale for $499 this week!";
+            } else if (lowerMsg.includes('stock') || lowerMsg.includes('available')) {
+                return "I can check real-time inventory for you. Which product are you looking for?";
+            } else if (lowerMsg.includes('hours') || lowerMsg.includes('open')) {
+                return "Our store hours are:<br>Monday-Friday: 8am-10pm<br>Saturday: 8am-11pm<br>Sunday: 8am-9pm";
+            } else if (lowerMsg.includes('order') || lowerMsg.includes('purchase')) {
+                return "I can assist with your order. Please provide your order number or phone number associated with the order.";
+            } else if (lowerMsg.includes('thank')) {
+                return "You're welcome! Is there anything else I can help you with?";
+            } else {
+                return "I'm here to help with your Walmart shopping experience. You can ask me about products, store information, or assistance with orders.";
+            }
+        }
+        
+        sendButton.addEventListener('click', function() {
+            const message = chatInput.value.trim();
+            if (message) {
+                addMessage(message, true);
+                chatInput.value = '';
+                
+                // Simulate AI response delay
+                setTimeout(() => {
+                    const response = processMessage(message);
+                    addMessage(response);
+                }, 1000);
+            }
+        });
+        
+        chatInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendButton.click();
+            }
+        });
+        
+        document.querySelectorAll('.quick-question').forEach(button => {
+            button.addEventListener('click', function() {
+                const question = this.getAttribute('data-question');
+                addMessage(question, true);
+                
+                setTimeout(() => {
+                    const response = processMessage(question);
+                    addMessage(response);
+                }, 1000);
+            });
+        });
+        
+        // Frictionless Checkout functionality
+        let cart = [];
+        let cartTotal = 0;
+        
+        const cartItemsContainer = document.querySelector('.cart-items');
+        const verificationStatus = document.querySelector('.verification-status');
+        const checkoutBtn = document.getElementById('checkout-btn');
+        const paymentSummary = document.querySelector('.payment-summary');
+        
+        // Product scanning
+        document.querySelectorAll('.product-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const id = this.getAttribute('data-id');
+                const name = this.getAttribute('data-name');
+                const price = parseFloat(this.getAttribute('data-price'));
+                const img = this.getAttribute('data-img');
+                
+                // Add to cart
+                addToCart(id, name, price, img);
+                
+                // Simulate scanning animation
+                simulateScan();
+            });
+        });
+        
+        // Add item to cart
+        function addToCart(id, name, price, img) {
+            // Check if item already in cart
+            const existingItem = cart.find(item => item.id === id);
+            
+            if(existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({
+                    id,
+                    name,
+                    price,
+                    img,
+                    quantity: 1
+                });
+            }
+            
+            // Update cart display
+            updateCartDisplay();
+            
+            // Update verification status
+            updateVerificationStatus();
+        }
+        
+        // Update cart display
+        function updateCartDisplay() {
+            cartItemsContainer.innerHTML = '';
+            
+            if(cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="text-align: center; padding: 20px;">Your cart is empty. Scan items to add them.</p>';
+                updatePaymentSummary(0, 0, 0);
+                return;
+            }
+            
+            cartTotal = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                cartTotal += itemTotal;
+                
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <img src="${item.img}" alt="${item.name}">
+                    <div class="item-details">
+                        <h4>${item.name}</h4>
+                        <div class="item-price">$${item.price.toFixed(2)}</div>
+                    </div>
+                    <div class="item-quantity">
+                        <button class="quantity-btn minus" data-id="${item.id}">-</button>
+                        <span>${item.quantity}</span>
+                        <button class="quantity-btn plus" data-id="${item.id}">+</button>
+                    </div>
+                `;
+                
+                cartItemsContainer.appendChild(cartItem);
+            });
+            
+            // Add event listeners to quantity buttons
+            document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    decreaseQuantity(id);
+                });
+            });
+            
+            document.querySelectorAll('.quantity-btn.plus').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    increaseQuantity(id);
+                });
+            });
+            
+            // Update payment summary
+            const tax = cartTotal * 0.08;
+            const savings = cart.length > 0 ? 3.50 : 0;
+            const total = cartTotal + tax - savings;
+            updatePaymentSummary(cartTotal, tax, savings, total);
+        }
+        
+        // Update payment summary
+        function updatePaymentSummary(subtotal, tax, savings, total) {
+            paymentSummary.innerHTML = `
+                <div class="summary-row">
+                    <span>Subtotal (${cart.reduce((acc, item) => acc + item.quantity, 0)} items):</span>
+                    <span>$${subtotal.toFixed(2)}</span>
+                </div>
+                <div class="summary-row">
+                    <span>Tax:</span>
+                    <span>$${tax.toFixed(2)}</span>
+                </div>
+                <div class="summary-row">
+                    <span>Savings:</span>
+                    <span style="color: var(--success);">-$${savings.toFixed(2)}</span>
+                </div>
+                <div class="summary-row total-row">
+                    <span>Total:</span>
+                    <span>$${total.toFixed(2)}</span>
+                </div>
+            `;
+        }
+        
+        // Decrease item quantity
+        function decreaseQuantity(id) {
+            const item = cart.find(item => item.id === id);
+            if(item) {
+                item.quantity--;
+                if(item.quantity <= 0) {
+                    cart = cart.filter(item => item.id !== id);
+                }
+                updateCartDisplay();
+                updateVerificationStatus();
+            }
+        }
+        
+        // Increase item quantity
+        function increaseQuantity(id) {
+            const item = cart.find(item => item.id === id);
+            if(item) {
+                item.quantity++;
+                updateCartDisplay();
+                updateVerificationStatus();
+            }
+        }
+        
+        // Update verification status
+        function updateVerificationStatus() {
+            if(cart.length === 0) {
+                verificationStatus.innerHTML = `
+                    <div class="verification-icon">
+                        <i class="fas fa-info-circle" style="color: var(--info);"></i>
+                    </div>
+                    <div>
+                        <h4>Ready to Scan</h4>
+                        <p>Scan items to begin verification</p>
+                    </div>
+                `;
+            } else {
+                verificationStatus.innerHTML = `
+                    <div class="verification-icon">
+                        <i class="fas fa-check-circle" style="color: var(--success);"></i>
+                    </div>
+                    <div>
+                        <h4>AI Verification Complete</h4>
+                        <p>All items verified by ceiling cameras</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // Simulate scanning animation
+        function simulateScan() {
+            const status = document.getElementById('verification-status');
+            status.innerHTML = '<i class="fas fa-sync-alt fa-spin"></i> Verifying item...';
+            status.style.background = 'rgba(255, 193, 7, 0.3)';
+            
+            setTimeout(() => {
+                status.innerHTML = '<i class="fas fa-check-circle" style="color: var(--success);"></i> Item verified and added to cart';
+                status.style.background = 'rgba(40, 167, 69, 0.3)';
+                
+                // Reset after 2 seconds
+                setTimeout(() => {
+                    status.innerHTML = '<i class="fas fa-check-circle" style="color: var(--success);"></i> Ready to scan';
+                    status.style.background = 'rgba(0,0,0,0.5)';
+                }, 2000);
+            }, 1500);
+        }
+        
+        // Checkout process
+        checkoutBtn.addEventListener('click', function() {
+            if(cart.length === 0) {
+                alert('Your cart is empty. Please scan items before checking out.');
+                return;
+            }
+            
+            // Show processing
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Payment...';
+            this.disabled = true;
+            
+            // Calculate total
+            const subtotal = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+            const tax = subtotal * 0.08;
+            const savings = 3.50;
+            const total = subtotal + tax - savings;
+            
+            // Simulate payment processing
+            setTimeout(() => {
+                // Show success
+                paymentSummary.innerHTML = `
+                    <div style="text-align: center; padding: 20px;">
+                        <i class="fas fa-check-circle" style="font-size: 3rem; color: var(--success); margin-bottom: 15px;"></i>
+                        <h3>Payment Successful!</h3>
+                        <p>Thank you for shopping at Walmart</p>
+                        <div style="margin-top: 20px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px;">
+                            <p>Receipt sent to your Walmart account</p>
+                            <p style="font-size: 1.2rem; margin-top: 10px;">Total: $${total.toFixed(2)}</p>
+                        </div>
+                        <div style="margin-top: 20px; background: rgba(255, 194, 32, 0.2); padding: 15px; border-radius: 10px;">
+                            <h4><i class="fas fa-tag"></i> Special Offer</h4>
+                            <p>30% off baby wipes on your next visit</p>
+                        </div>
+                    </div>
+                `;
+                
+                // Reset cart
+                cart = [];
+                updateCartDisplay();
+                updateVerificationStatus();
+                
+                // Reset button after 5 seconds
+                setTimeout(() => {
+                    checkoutBtn.innerHTML = '<i class="fas fa-wallet"></i> Complete Payment';
+                    checkoutBtn.disabled = false;
+                }, 5000);
+            }, 2000);
+        });
+        
+        // Initialize cart display
+        updateCartDisplay();
+        updateVerificationStatus();
+        
+        // Initialize with home section
+        document.getElementById('home').classList.add('active');
+    </script>
+</body>
+</html>
