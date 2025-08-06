@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "input_documents": [
+      "South of France - Cities.pdf",
+      "South of France - Cuisine.pdf",
+      "South of France - History.pdf",
+      "South of France - Restaurants and Hotels.pdf",
+      "South of France - Things to Do.pdf",
+      "South of France - Tips and Tricks.pdf",
+      "South of France - Traditions and Culture.pdf"
+    ],
+    "persona": "Travel Planner",
+    "job_to_be_done": "Plan a trip of 4 days for a group of 10 college friends.",
+    "processing_timestamp": "2025-07-28T18:30:26.532909"
+  },
+  "extracted_sections": [
+    {
+      "document": "South of France - Cities.pdf",
+      "section_title": "Boat Trip to the Calanques: Take a boat trip to the Calanques, a series of stunning",
+      "importance_rank": 1,
+      "page_number": 3
+    },
+    {
+      "document": "South of France - Things to Do.pdf",
+      "section_title": "Dordogne River: Enjoy a leisurely canoe trip, passing by medieval castles and",
+      "importance_rank": 1,
+      "page_number": 4
+    },
+    {
+      "document": "South of France - Things to Do.pdf",
+      "section_title": "Bordeaux: Take a day trip to the world-renowned wine region and visit its prestigious",
+      "importance_rank": 2,
+      "page_number": 5
+    },
+    {
+      "document": "South of France - Tips and Tricks.pdf",
+      "section_title": "Accessories: A scarf, sunglasses for sunny winter days, and a travel-sized hand",
+      "importance_rank": 1,
+      "page_number": 3
+    },
+    {
+      "document": "South of France - Tips and Tricks.pdf",
+      "section_title": "Active Wear: If you plan on hiking or outdoor activities, pack activewear like leggings,",
+      "importance_rank": 2,
+      "page_number": 4
+    },
+    {
+      "document": "South of France - Tips and Tricks.pdf",
+      "section_title": "Swimwear: Swimsuits and cover-ups for beach or pool days.",
+      "importance_rank": 3,
+      "page_number": 6
+    },
+    {
+      "document": "South of France - Tips and Tricks.pdf",
+      "section_title": "Additional Tips: Plan your wine tour route in advance and consider hiring a driver or",
+      "importance_rank": 4,
+      "page_number": 8
+    }
+  ],
+  "subsection_analysis": [
+    {
+      "document": "South of France - Cities.pdf",
+      "page_number": 3,
+      "refined_text": "Marseille: The Oldest City in France \nHistory \nMarseille, founded by Greek sailors around 600 BC, is the oldest city in France. Its strategic \nlocation on the Mediterranean coast made it a vital trading port throughout history. The city's \nrich cultural heritage is reflected in its diverse architecture and vibrant atmosphere. Over the \ncenturies, Marseille has been influenced by various cultures, including Greek, Roman, and \nNorth African, making it a melting pot of traditions and customs. \nKey Attractions \n• \nOld Port (Vieux-Port): The heart of Marseille, the Old Port has been a bustling harbor \nfor over 2,600 years. Today, it is a lively area filled with cafes, restaurants, and \nmarkets. \n• \nBasilica of Notre-Dame de la Garde: This iconic basilica, perched on a hill \noverlooking the city, oﬀers panoramic views of Marseille and the Mediterranean Sea. \nBuilt in the 19th century, it is a symbol of the city's maritime heritage. \n• \nMuCEM (Museum of European and Mediterranean Civilization..."
+    },
+    {
+      "document": "South of France - Things to Do.pdf",
+      "page_number": 4,
+      "refined_text": "Outdoor Activities \nThe diverse landscapes of the South of France oﬀer plenty of opportunities for outdoor \nadventures: \nHiking and Biking \n• \nVerdon Gorge: Known as the \"Grand Canyon of Europe,\" oﬀering spectacular hiking \ntrails. \n• \nLuberon Regional Park: Explore picturesque villages and rolling hills, famous for \nlavender fields and vineyards. \n• \nPyrenees National Park: Enjoy challenging hikes and stunning mountain scenery. \n• \nMercantour National Park: Discover diverse wildlife and beautiful alpine landscapes. \n• \nCamargue: Explore the unique wetlands on horseback or by bike. \n• \nMont Ventoux: Challenge yourself with a hike or bike ride up this iconic mountain. \n• \nGorges du Tarn: Hike through dramatic gorges and enjoy breathtaking views. \nWater Activities \n• \nArdèche River: Paddle through the stunning Ardèche Gorge. \n• \nDordogne River: Enjoy a leisurely canoe trip, passing by medieval castles and \ncharming villages. \n• \nUbaye River: Experience white-water rafting for an adrenali..."
+    },
+    {
+      "document": "South of France - Things to Do.pdf",
+      "page_number": 5,
+      "refined_text": "Culinary Delights \nThe South of France is a food lover's paradise. Here are some activities to indulge in the \nregion's culinary delights: \nWine Tasting \n• \nProvence: Explore vineyards known for their rosé wines. \n• \nLanguedoc: Discover diverse wines, including reds, whites, and sparkling wines. \n• \nChâteauneuf-du-Pape: Visit this famous wine region near Avignon. \n• \nBandol: Taste the robust red wines and refreshing rosés of this coastal region. \n• \nCôtes du Rhône: Explore the vineyards along the Rhône River. \n• \nGaillac: Discover the unique wines of this lesser-known region. \n• \nBordeaux: Take a day trip to the world-renowned wine region and visit its prestigious \nchâteaux. \nCooking Classes \n• \nProvence: Learn to prepare traditional dishes like ratatouille and bouillabaisse. \n• \nPérigord: Join a truﬄe hunting tour followed by a cooking class. \n• \nNice: Take a class to master Niçoise cuisine, including dishes like salade niçoise and \nsocca. \n• \nToulouse: Learn to cook regional specialt..."
+    },
+    {
+      "document": "South of France - Tips and Tricks.pdf",
+      "page_number": 3,
+      "refined_text": "Packing for All Seasons \nSpring (March to May) \n• \nClothing: Light sweaters, long-sleeve shirts, t-shirts, and a light jacket or raincoat. \n• \nFootwear: Comfortable walking shoes and sandals. \n• \nAccessories: Sunglasses, a hat, and a small umbrella. \n• \nAdditional Tips: Spring can be unpredictable, so be prepared for both sunny and rainy \ndays. Consider packing a lightweight scarf for cooler evenings. \nSummer (June to August) \n• \nClothing: Lightweight, breathable fabrics like cotton and linen. Pack t-shirts, shorts, \nsundresses, and swimwear. \n• \nFootwear: Sandals, flip-flops, and comfortable walking shoes. \n• \nAccessories: Sunglasses, a wide-brimmed hat, sunscreen, and a reusable water bottle. \n• \nAdditional Tips: The South of France can get very hot in the summer, so stay hydrated \nand seek shade during peak sun hours. Pack a cooling towel to help manage the heat. \nAutumn (September to November) \n• \nClothing: Light sweaters, long-sleeve shirts, t-shirts, and a medium-weight jacket. \n..."
+    },
+    {
+      "document": "South of France - Tips and Tricks.pdf",
+      "page_number": 4,
+      "refined_text": "• \nAdditional Tips: Winter is mild compared to other regions, but it's still important to \npack warm clothing for cooler evenings. Consider packing thermal underwear for \nextra warmth. \nPacking for Adults \nClothing \n• \nCasual Wear: Comfortable clothes for sightseeing and casual dining, like jeans, t-\nshirts, and casual dresses. \n• \nEvening Wear: Dressier outfits for dining out or events. Pack a nice dress or dress \npants and a blouse/shirt. \n• \nActive Wear: If you plan on hiking or outdoor activities, pack activewear like leggings, \nshorts, and moisture-wicking tops. \n• \nSwimwear: Don't forget your swimsuit for beach or pool visits. \n• \nAccessories: A stylish yet functional bag, a lightweight scarf, and a versatile jacket. \n• \nAdditional Tips: Pack a few statement pieces that can be dressed up or down, such as \na versatile dress or a pair of stylish shoes. \nToiletries \n• \nBasic Toiletries: Toothbrush, toothpaste, shampoo, conditioner, body wash, \ndeodorant, and personal hygiene items. ..."
+    },
+    {
+      "document": "South of France - Tips and Tricks.pdf",
+      "page_number": 6,
+      "refined_text": "Packing for Kids \nClothing \n• \nComfortable Wear: T-shirts, shorts, pants, dresses, pajamas, and underwear. \n• \nLayering: Depending on the season, pack sweaters, jackets, and hats. \n• \nSwimwear: Swimsuits and cover-ups for beach or pool days. \n• \nAccessories: A sun hat, sunglasses, and a lightweight jacket. \n• \nAdditional Tips: Pack extra clothing for kids, as they may need more changes of \nclothes than adults. \nEssentials \n• \nDiapers and Wipes: For babies or toddlers, pack enough diapers and wipes. \n• \nSnacks: Bring a variety of snacks for travel and outings. \n• \nToys and Entertainment: Favorite toys, books, or games. Consider a tablet with pre-\ndownloaded content. \n• \nAdditional Tips: Pack a small backpack for each child with their essentials to keep \nthem engaged. Include comfort items like a favorite blanket or stuﬀed animal. \nToiletries \n• \nBasic Toiletries: Toothbrush, toothpaste, shampoo, body wash, and personal hygiene \nitems. \n• \nSunscreen: Kid-friendly sunscreen. \n• \nAdditiona..."
+    },
+    {
+      "document": "South of France - Tips and Tricks.pdf",
+      "page_number": 8,
+      "refined_text": "• \nNotebook: Bring a notebook to jot down notes about the wines you taste. \n• \nWater Bottle: Stay hydrated by drinking water between tastings. \n• \nAdditional Tips: Plan your wine tour route in advance and consider hiring a driver or \njoining a guided tour to avoid drinking and driving. \n \nTips and Tricks for Packing \n• \nCheck the Weather: Check the forecast before packing to ensure appropriate clothing. \n• \nMake a Packing List: Create a list to ensure nothing is forgotten. Cross oﬀ items as you \npack. \n• \nUse Packing Cubes: Organize clothes and maximize space. \n• \nRoll Your Clothes: Save space and reduce wrinkles. \n• \nPack Dual-Purpose Items: Choose items that serve multiple purposes. \n• \nWear Bulky Items: Wear bulky items like coats or boots during travel to save suitcase \nspace. \n• \nPack a Day Bag: Bring a small day bag for daily excursions. \n• \nLeave Room for Souvenirs: Leave extra space or bring a foldable bag for souvenirs. \n• \nAdditional Tips: Pack a small travel umbrella, a reus..."
+    }
+  ]
+}

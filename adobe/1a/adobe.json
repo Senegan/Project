@@ -1,0 +1,670 @@
+{
+  "title": "Document Title",
+  "outline": [
+    {
+      "level": "H1",
+      "text": "Welcome to the Connecting the Dots Challenge",
+      "page": 2
+    },
+    {
+      "level": "H1",
+      "text": "Round 1A Understand Your Document",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "3 Sample Dockerfile",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "4 Sample Solution",
+      "page": 4
+    },
+    {
+      "level": "H1",
+      "text": "Docker Requirements",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "Please ensure your Dockerfile is compatible with AMD64",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "architecture Since we will build and run the image on an AMD64",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "machine your base image and any dependencies should support",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "linuxamd64 Optionally you can include the following in your",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "Dockerfile to explicitly specify the platform FROM",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "platformlinuxamd64 base_image",
+      "page": 4
+    },
+    {
+      "level": "H1",
+      "text": "CPU architecture amd64 x86_64",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "No GPU dependencies",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "Model size if used  200MB",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "Should work offline  no networkinternet calls",
+      "page": 4
+    },
+    {
+      "level": "H1",
+      "text": "Expected Execution",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "We will build the docker image using the following command",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "docker build platform linuxamd64 t",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "mysolutionnamesomerandomidentifier",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "After building the image we will run the solution using the run command",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "specified in the submitted instructions",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "docker run rm v pwdinputappinput v pwdoutputappoutput",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "network none mysolutionnamesomerandomidentifier",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "Your container should",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "Automatically process all PDFs from appinput directory",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "generating a corresponding filenamejson in appoutput for each",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "filenamepdf",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "outputjson",
+      "page": 4
+    },
+    {
+      "level": "H1",
+      "text": "Constraints",
+      "page": 4
+    },
+    {
+      "level": "H1",
+      "text": "Constraint",
+      "page": 4
+    },
+    {
+      "level": "H1",
+      "text": "Requirement",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "Execution",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "time",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "10 seconds for a 50page",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "PDF",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "Model size   200MB if used",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "Network",
+      "page": 5
+    },
+    {
+      "level": "H1",
+      "text": "No internet access",
+      "page": 5
+    },
+    {
+      "level": "H1",
+      "text": "allowed",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "Runtime",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "Must run on CPU amd64",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "your solution should run on",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "the system with 8 CPUs and",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "16 GB RAM configurations",
+      "page": 5
+    },
+    {
+      "level": "H1",
+      "text": "Scoring Criteria",
+      "page": 5
+    },
+    {
+      "level": "H1",
+      "text": "Criteria",
+      "page": 5
+    },
+    {
+      "level": "H1",
+      "text": "Max",
+      "page": 5
+    },
+    {
+      "level": "H1",
+      "text": "Points",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "Heading Detection Accuracy Precision",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "Recall",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "25",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "Performance Time  Size Compliance",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "10",
+      "page": 5
+    },
+    {
+      "level": "H1",
+      "text": "Bonus Multilingual Handling eg",
+      "page": 5
+    },
+    {
+      "level": "H1",
+      "text": "Japanese",
+      "page": 5
+    },
+    {
+      "level": "H1",
+      "text": "Total",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "45",
+      "page": 5
+    },
+    {
+      "level": "H1",
+      "text": "Submission Checklist",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "1 Git Project with a working Dockerfile in the root director and",
+      "page": 5
+    },
+    {
+      "level": "H1",
+      "text": "2 A working Dockerfile",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "3 All dependencies installed within the container",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "4 A READMEmd that explains",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "o Your approach",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "o Any models or libraries used",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "o How to build and run your solution This is purely for",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "documentation purpose your solution should run using the",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "Expected Execution section above",
+      "page": 5
+    },
+    {
+      "level": "H1",
+      "text": "Pro Tips",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "Dont rely solely on font sizes for heading level determination",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "headings in some PDFs break that assumption",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "Test your solution across both simple and complex PDFs",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "Make your code modular  youll reuse this structure in Round",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "1B",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "Important  Please keep your Git Repo private till the competition",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "deadline you will be informed when to make the repo public",
+      "page": 6
+    },
+    {
+      "level": "H1",
+      "text": "What Not to Do",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "Do not hardcode headings or filespecific logic",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "Do not make API or web calls",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "Do not exceed the runtimemodel size constraints",
+      "page": 6
+    },
+    {
+      "level": "H1",
+      "text": "Public Dataset Folder",
+      "page": 6
+    },
+    {
+      "level": "H1",
+      "text": "For Sample Input and Output Files please refer to the appendix",
+      "page": 6
+    },
+    {
+      "level": "H1",
+      "text": "Round 1B PersonaDriven Document Intelligence",
+      "page": 7
+    },
+    {
+      "level": "H1",
+      "text": "Test Case 2 Business Analysis",
+      "page": 8
+    },
+    {
+      "level": "H1",
+      "text": "Documents 3 annual reports from competing tech companies",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "20222024",
+      "page": 8
+    },
+    {
+      "level": "H1",
+      "text": "Persona Investment Analyst",
+      "page": 8
+    },
+    {
+      "level": "H1",
+      "text": "Job Analyze revenue trends RD investments and market",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "positioning strategies",
+      "page": 8
+    },
+    {
+      "level": "H1",
+      "text": "Test Case 3 Educational Content",
+      "page": 8
+    },
+    {
+      "level": "H1",
+      "text": "Documents 5 chapters from organic chemistry textbooks",
+      "page": 8
+    },
+    {
+      "level": "H1",
+      "text": "Persona Undergraduate Chemistry Student",
+      "page": 8
+    },
+    {
+      "level": "H1",
+      "text": "Job Identify key concepts and mechanisms for exam preparation",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "on reaction kinetics",
+      "page": 8
+    },
+    {
+      "level": "H1",
+      "text": "Required Output",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "Output JSON format Refer challenge1b_outputjson",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "The output should contain",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "1 Metadata",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "a Input documents",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "b Persona",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "c Job to be done",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "d Processing timestamp",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "2 Extracted Section",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "a Document",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "b Page number",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "c Section title",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "d Importance_rank",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "3 Subsection Analysis",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "b",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "c Refined Text",
+      "page": 8
+    },
+    {
+      "level": "H1",
+      "text": "d Page Number Constraints",
+      "page": 8
+    },
+    {
+      "level": "H1",
+      "text": "Must run on CPU only",
+      "page": 8
+    },
+    {
+      "level": "H1",
+      "text": "Model size  1GB",
+      "page": 8
+    },
+    {
+      "level": "H1",
+      "text": "Processing time  60 seconds for document collection 35",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "documents",
+      "page": 8
+    },
+    {
+      "level": "H1",
+      "text": "No internet access allowed during execution",
+      "page": 8
+    },
+    {
+      "level": "H1",
+      "text": "Deliverables",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "approach_explanationmd 300500 words explaining",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "methodology",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "Dockerfile and execution instructions",
+      "page": 9
+    },
+    {
+      "level": "H1",
+      "text": "Sample inputoutput for testing",
+      "page": 9
+    },
+    {
+      "level": "H1",
+      "text": "Description",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "Section Relevance",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "60",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "How well selected sections match",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "persona  job requirements with",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "proper stack ranking",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "SubSection Relevance",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "40",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "Quality of granular subsection",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "extraction and ranking",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "Appendix",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "httpsgithubcomjhaaj08AdobeIndia",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "Hackathon25git",
+      "page": 10
+    }
+  ]
+}
