@@ -1,0 +1,564 @@
+2025-08-09 00:55:42,629 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.10.134:5000
+2025-08-09 00:55:42,630 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-09 00:55:42,635 - INFO -  * Restarting with stat
+2025-08-09 00:55:46,176 - WARNING -  * Debugger is active!
+2025-08-09 00:55:46,204 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 00:55:58,893 - INFO - 127.0.0.1 - - [09/Aug/2025 00:55:58] "GET / HTTP/1.1" 200 -
+2025-08-09 00:56:03,299 - INFO - 127.0.0.1 - - [09/Aug/2025 00:56:03] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-08-09 00:56:13,273 - INFO - Search requested: 'Head Post Office Chidambaram' -> 'Rajiv Gandhi Government General Hospital chennai' on 2025-08-11
+2025-08-09 00:56:13,274 - INFO - Geocoding location: Head Post Office Chidambaram (is_station=False)
+2025-08-09 00:56:14,430 - INFO - Found coordinates: 11.4029503, 79.6922518 for 'Head Post Office Chidambaram'
+2025-08-09 00:56:14,431 - INFO - Geocoding location: Rajiv Gandhi Government General Hospital chennai (is_station=False)
+2025-08-09 00:56:15,407 - INFO - Found coordinates: 13.0806077, 80.2773314 for 'Rajiv Gandhi Government General Hospital chennai'
+2025-08-09 00:56:15,408 - INFO - Coordinates: Source=(11.4029503, 79.6922518), Destination=(13.0806077, 80.2773314)
+2025-08-09 00:56:16,581 - INFO - Photon reverse too generic ('None'), falling back to Nominatim for coords (11.4029503, 79.6922518)
+2025-08-09 00:56:16,849 - INFO - Nominatim reverse: using 'Chidambaram' for coords (11.4029503, 79.6922518)
+2025-08-09 00:56:16,849 - INFO - No comma in source input; using reverse-geocoded source city: 'Chidambaram'
+2025-08-09 00:56:17,581 - INFO - Photon reverse too generic ('None'), falling back to Nominatim for coords (13.0806077, 80.2773314)
+2025-08-09 00:56:17,869 - INFO - Nominatim reverse: using 'Chennai' for coords (13.0806077, 80.2773314)
+2025-08-09 00:56:17,870 - INFO - No comma in dest input; using reverse-geocoded destination city: 'Chennai'
+2025-08-09 00:56:17,871 - INFO - Derived source city/town: 'chidambaram', destination city/town: 'chennai'
+2025-08-09 00:56:17,871 - INFO - Geocoding location: Chidambaram (is_station=False)
+2025-08-09 00:56:18,823 - INFO - Found coordinates: 11.3920706, 79.703025 for 'Chidambaram'
+2025-08-09 00:56:18,824 - INFO - Source city-center coords: (11.3920706, 79.703025)
+2025-08-09 00:56:18,824 - INFO - Geocoding location: Chennai (is_station=False)
+2025-08-09 00:56:19,871 - INFO - Found coordinates: 13.0836939, 80.270186 for 'Chennai'
+2025-08-09 00:56:19,871 - INFO - Destination city-center coords: (13.0836939, 80.270186)
+2025-08-09 00:56:19,872 - INFO - Geocoding location: Chidambaram Bus Stand (is_station=False)
+2025-08-09 00:56:20,895 - INFO - Found coordinates: 11.3968705, 79.7006526 for 'Chidambaram Bus Stand'
+2025-08-09 00:56:20,896 - INFO - Found source bus stand: Chidambaram Bus Stand at (11.3968705, 79.7006526)
+2025-08-09 00:56:20,897 - INFO - Geocoding location: Chennai Bus Stand (is_station=False)
+2025-08-09 00:56:22,152 - INFO - Found coordinates: 12.9739799, 80.2029314 for 'Chennai Bus Stand'
+2025-08-09 00:56:22,154 - INFO - Geocoding location: Chennai Bus Terminal (is_station=False)
+2025-08-09 00:56:23,147 - INFO - Found coordinates: 13.1059186, 80.2804327 for 'Chennai Bus Terminal'
+2025-08-09 00:56:23,148 - INFO - Found destination bus stand: Chennai Bus Terminal at (13.1059186, 80.2804327)
+2025-08-09 00:56:23,210 - WARNING - Station code PDF not found at: S:\Project	ransp1\Station_code.pdf
+2025-08-09 00:56:28,082 - INFO - Changed destination station to Chennai Egmore
+2025-08-09 00:56:28,083 - INFO - Bus hub-to-hub distance: 199.3 km
+2025-08-09 00:56:28,084 - INFO - Checking TNSTC direct schedules for 'Chidambaram' -> 'Chennai' on 11/08/2025
+2025-08-09 00:56:28,359 - INFO - Checking TNSTC direct schedules for 'Chidambaram' -> 'Chennai Bus Stand' on 11/08/2025
+2025-08-09 00:56:28,475 - INFO - TNSTC: could not find place IDs for 'chidambaram' or 'chennai bus stand'
+2025-08-09 00:56:28,477 - INFO - Checking TNSTC direct schedules for 'Chidambaram Bus Stand' -> 'Chennai' on 11/08/2025
+2025-08-09 00:56:28,586 - INFO - TNSTC: could not find place IDs for 'chidambaram bus stand' or 'chennai'
+2025-08-09 00:56:28,587 - INFO - Checking TNSTC direct schedules for 'Chidambaram Bus Stand' -> 'Chennai Bus Stand' on 11/08/2025
+2025-08-09 00:56:28,703 - INFO - TNSTC: could not find place IDs for 'chidambaram bus stand' or 'chennai bus stand'
+2025-08-09 00:56:28,704 - INFO - TNSTC: no schedules found for any combination for 'Chidambaram' -> 'Chennai'
+2025-08-09 00:56:28,705 - INFO - Looking up AbhiBus city ID for 'chidambaram' on page https://www.abhibus.com/routes/1530
+2025-08-09 00:56:29,413 - INFO - Looking up AbhiBus city ID for 'chidambaram' on page https://www.abhibus.com/routes/1620
+2025-08-09 00:56:29,935 - INFO - Looking up AbhiBus city ID for 'chidambaram' on page https://www.abhibus.com/routes/1710
+2025-08-09 00:56:30,591 - INFO - Looking up AbhiBus city ID for 'chidambaram' on page https://www.abhibus.com/routes/1800
+2025-08-09 00:56:30,964 - INFO - AbhiBus: found city ID for source 'chidambaram': 1468
+2025-08-09 00:56:30,965 - INFO - Looking up AbhiBus city ID for 'chennai' on page https://www.abhibus.com/routes/1530
+2025-08-09 00:56:31,331 - INFO - Looking up AbhiBus city ID for 'chennai' on page https://www.abhibus.com/routes/1620
+2025-08-09 00:56:31,682 - INFO - Looking up AbhiBus city ID for 'chennai' on page https://www.abhibus.com/routes/1710
+2025-08-09 00:56:31,825 - INFO - AbhiBus: found city ID for dest 'chennai': 6
+2025-08-09 00:56:31,826 - INFO - Checking AbhiBus direct schedules with URL: https://www.abhibus.com/bus_search/chidambaram/1468/chennai/6/11-08-2025/O
+2025-08-09 00:56:31,840 - ERROR - WebDriver error during AbhiBus scrape: Message: Unable to obtain driver for MicrosoftEdge; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+2025-08-09 00:56:31,922 - INFO - Checking RedBus direct schedules for chidambaram -> chennai on 11-Aug-2025
+2025-08-09 00:56:31,925 - ERROR - WebDriver error during RedBus scroll: Message: Unable to obtain driver for MicrosoftEdge; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+2025-08-09 00:56:31,960 - ERROR - RedBus error: Incoming markup is of an invalid type: None. Markup must be a string, a bytestring, or an open filehandle.
+2025-08-09 00:56:31,996 - INFO - 127.0.0.1 - - [09/Aug/2025 00:56:31] "POST /search HTTP/1.1" 200 -
+2025-08-09 00:58:54,956 - INFO -  * Detected change in 's:\\Project\\transp1\\main.py', reloading
+2025-08-09 00:58:55,209 - INFO -  * Restarting with stat
+2025-08-09 00:58:58,878 - WARNING -  * Debugger is active!
+2025-08-09 00:58:58,885 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 00:59:36,195 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.10.134:5000
+2025-08-09 00:59:36,195 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-09 00:59:36,199 - INFO -  * Restarting with stat
+2025-08-09 00:59:39,940 - WARNING -  * Debugger is active!
+2025-08-09 00:59:39,948 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 01:02:33,133 - INFO - Search requested: 'Head Post Office Chidambaram' -> 'Rajiv Gandhi Government General Hospital chennai' on 2025-08-11
+2025-08-09 01:02:33,134 - INFO - Geocoding location: Head Post Office Chidambaram (is_station=False)
+2025-08-09 01:02:33,822 - INFO - Found coordinates: 11.4029503, 79.6922518 for 'Head Post Office Chidambaram'
+2025-08-09 01:02:33,822 - INFO - Geocoding location: Rajiv Gandhi Government General Hospital chennai (is_station=False)
+2025-08-09 01:02:34,822 - INFO - Found coordinates: 13.0806077, 80.2773314 for 'Rajiv Gandhi Government General Hospital chennai'
+2025-08-09 01:02:34,823 - INFO - Coordinates: Source=(11.4029503, 79.6922518), Destination=(13.0806077, 80.2773314)
+2025-08-09 01:02:36,121 - INFO - Photon reverse too generic ('None'), falling back to Nominatim for coords (11.4029503, 79.6922518)
+2025-08-09 01:02:36,395 - INFO - Nominatim reverse: using 'Chidambaram' for coords (11.4029503, 79.6922518)
+2025-08-09 01:02:36,396 - INFO - No comma in source input; using reverse-geocoded source city: 'Chidambaram'
+2025-08-09 01:02:37,114 - INFO - Photon reverse too generic ('None'), falling back to Nominatim for coords (13.0806077, 80.2773314)
+2025-08-09 01:02:37,365 - INFO - Nominatim reverse: using 'Chennai' for coords (13.0806077, 80.2773314)
+2025-08-09 01:02:37,366 - INFO - No comma in dest input; using reverse-geocoded destination city: 'Chennai'
+2025-08-09 01:02:37,366 - INFO - Derived source city/town: 'chidambaram', destination city/town: 'chennai'
+2025-08-09 01:02:37,367 - INFO - Geocoding location: Chidambaram (is_station=False)
+2025-08-09 01:02:38,336 - INFO - Found coordinates: 11.3920706, 79.703025 for 'Chidambaram'
+2025-08-09 01:02:38,336 - INFO - Source city-center coords: (11.3920706, 79.703025)
+2025-08-09 01:02:38,337 - INFO - Geocoding location: Chennai (is_station=False)
+2025-08-09 01:02:39,387 - INFO - Found coordinates: 13.0836939, 80.270186 for 'Chennai'
+2025-08-09 01:02:39,387 - INFO - Destination city-center coords: (13.0836939, 80.270186)
+2025-08-09 01:02:39,388 - INFO - Geocoding location: Chidambaram Bus Stand (is_station=False)
+2025-08-09 01:02:40,345 - INFO - Found coordinates: 11.3968705, 79.7006526 for 'Chidambaram Bus Stand'
+2025-08-09 01:02:40,346 - INFO - Found source bus stand: Chidambaram Bus Stand at (11.3968705, 79.7006526)
+2025-08-09 01:02:40,347 - INFO - Geocoding location: Chennai Bus Stand (is_station=False)
+2025-08-09 01:02:41,568 - INFO - Found coordinates: 12.9739799, 80.2029314 for 'Chennai Bus Stand'
+2025-08-09 01:02:41,570 - INFO - Geocoding location: Chennai Bus Terminal (is_station=False)
+2025-08-09 01:02:42,470 - INFO - Found coordinates: 13.1059186, 80.2804327 for 'Chennai Bus Terminal'
+2025-08-09 01:02:42,471 - INFO - Found destination bus stand: Chennai Bus Terminal at (13.1059186, 80.2804327)
+2025-08-09 01:02:42,482 - INFO - Loading station codes from: S:\Project\transp1\Station_code.pdf
+2025-08-09 01:02:42,483 - INFO - Extracting station codes from: S:\Project\transp1\Station_code.pdf
+2025-08-09 01:02:42,536 - INFO - PDF has 14 pages
+2025-08-09 01:02:43,444 - INFO - Loaded 415 station codes from PDF
+2025-08-09 01:02:43,445 - INFO - Loaded 415 station codes
+2025-08-09 01:02:45,941 - INFO - Changed destination station to Chennai Egmore
+2025-08-09 01:02:45,942 - INFO - Bus hub-to-hub distance: 199.3 km
+2025-08-09 01:02:45,942 - INFO - Checking TNSTC direct schedules for 'Chidambaram' -> 'Chennai' on 11/08/2025
+2025-08-09 01:02:46,110 - INFO - Checking TNSTC direct schedules for 'Chidambaram' -> 'Chennai Bus Stand' on 11/08/2025
+2025-08-09 01:02:47,682 - INFO - TNSTC: could not find place IDs for 'chidambaram' or 'chennai bus stand'
+2025-08-09 01:02:47,683 - INFO - Checking TNSTC direct schedules for 'Chidambaram Bus Stand' -> 'Chennai' on 11/08/2025
+2025-08-09 01:02:48,261 - INFO - TNSTC: could not find place IDs for 'chidambaram bus stand' or 'chennai'
+2025-08-09 01:02:48,262 - INFO - Checking TNSTC direct schedules for 'Chidambaram Bus Stand' -> 'Chennai Bus Stand' on 11/08/2025
+2025-08-09 01:02:48,450 - INFO - TNSTC: could not find place IDs for 'chidambaram bus stand' or 'chennai bus stand'
+2025-08-09 01:02:48,451 - INFO - TNSTC: no schedules found for any combination for 'Chidambaram' -> 'Chennai'
+2025-08-09 01:02:48,452 - INFO - Looking up AbhiBus city ID for 'chidambaram' on page https://www.abhibus.com/routes/1530
+2025-08-09 01:02:49,374 - INFO - Looking up AbhiBus city ID for 'chidambaram' on page https://www.abhibus.com/routes/1620
+2025-08-09 01:02:49,735 - INFO - Looking up AbhiBus city ID for 'chidambaram' on page https://www.abhibus.com/routes/1710
+2025-08-09 01:02:50,093 - INFO - Looking up AbhiBus city ID for 'chidambaram' on page https://www.abhibus.com/routes/1800
+2025-08-09 01:02:50,313 - INFO - AbhiBus: found city ID for source 'chidambaram': 1468
+2025-08-09 01:02:50,314 - INFO - Looking up AbhiBus city ID for 'chennai' on page https://www.abhibus.com/routes/1530
+2025-08-09 01:02:51,144 - INFO - Looking up AbhiBus city ID for 'chennai' on page https://www.abhibus.com/routes/1620
+2025-08-09 01:02:51,534 - INFO - Looking up AbhiBus city ID for 'chennai' on page https://www.abhibus.com/routes/1710
+2025-08-09 01:02:51,695 - INFO - AbhiBus: found city ID for dest 'chennai': 6
+2025-08-09 01:02:51,696 - INFO - Checking AbhiBus direct schedules with URL: https://www.abhibus.com/bus_search/chidambaram/1468/chennai/6/11-08-2025/O
+2025-08-09 01:02:51,705 - ERROR - WebDriver error during AbhiBus scrape: Message: Unable to obtain driver for MicrosoftEdge; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+2025-08-09 01:02:51,755 - INFO - Checking RedBus direct schedules for chidambaram -> chennai on 11-Aug-2025
+2025-08-09 01:02:51,758 - ERROR - WebDriver error during RedBus scroll: Message: Unable to obtain driver for MicrosoftEdge; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+2025-08-09 01:02:51,796 - ERROR - RedBus error: Incoming markup is of an invalid type: None. Markup must be a string, a bytestring, or an open filehandle.
+2025-08-09 01:02:51,817 - INFO - 127.0.0.1 - - [09/Aug/2025 01:02:51] "POST /search HTTP/1.1" 200 -
+2025-08-09 02:03:56,810 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.10.134:5000
+2025-08-09 02:03:56,810 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-09 02:03:56,812 - INFO -  * Restarting with stat
+2025-08-09 02:03:59,425 - WARNING -  * Debugger is active!
+2025-08-09 02:03:59,430 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 02:04:03,113 - INFO - Search requested: 'Head Post Office Chidambaram' -> 'Rajiv Gandhi Government General Hospital chennai' on 2025-08-11
+2025-08-09 02:04:03,113 - INFO - Geocoding location: Head Post Office Chidambaram (is_station=False)
+2025-08-09 02:04:04,169 - INFO - Found coordinates: 11.4029503, 79.6922518 for 'Head Post Office Chidambaram'
+2025-08-09 02:04:04,170 - INFO - Geocoding location: Rajiv Gandhi Government General Hospital chennai (is_station=False)
+2025-08-09 02:04:05,230 - INFO - Found coordinates: 13.0806077, 80.2773314 for 'Rajiv Gandhi Government General Hospital chennai'
+2025-08-09 02:04:05,230 - INFO - Coordinates: Source=(11.4029503, 79.6922518), Destination=(13.0806077, 80.2773314)
+2025-08-09 02:04:06,471 - INFO - Photon reverse too generic ('None'), falling back to Nominatim for coords (11.4029503, 79.6922518)
+2025-08-09 02:04:06,704 - INFO - Nominatim reverse: using 'Chidambaram' for coords (11.4029503, 79.6922518)
+2025-08-09 02:04:06,704 - INFO - No comma in source input; using reverse-geocoded source city: 'Chidambaram'
+2025-08-09 02:04:07,467 - INFO - Photon reverse too generic ('None'), falling back to Nominatim for coords (13.0806077, 80.2773314)
+2025-08-09 02:04:07,696 - INFO - Nominatim reverse: using 'Chennai' for coords (13.0806077, 80.2773314)
+2025-08-09 02:04:07,696 - INFO - No comma in dest input; using reverse-geocoded destination city: 'Chennai'
+2025-08-09 02:04:07,697 - INFO - Derived source city/town: 'chidambaram', destination city/town: 'chennai'
+2025-08-09 02:04:07,697 - INFO - Geocoding location: Chidambaram (is_station=False)
+2025-08-09 02:04:08,712 - INFO - Found coordinates: 11.3920706, 79.703025 for 'Chidambaram'
+2025-08-09 02:04:08,712 - INFO - Source city-center coords: (11.3920706, 79.703025)
+2025-08-09 02:04:08,713 - INFO - Geocoding location: Chennai (is_station=False)
+2025-08-09 02:04:09,754 - INFO - Found coordinates: 13.0836939, 80.270186 for 'Chennai'
+2025-08-09 02:04:09,755 - INFO - Destination city-center coords: (13.0836939, 80.270186)
+2025-08-09 02:04:09,755 - INFO - Geocoding location: Chidambaram Bus Stand (is_station=False)
+2025-08-09 02:04:10,759 - INFO - Found coordinates: 11.3968705, 79.7006526 for 'Chidambaram Bus Stand'
+2025-08-09 02:04:10,760 - INFO - Found source bus stand: Chidambaram Bus Stand at (11.3968705, 79.7006526)
+2025-08-09 02:04:10,760 - INFO - Geocoding location: Chennai Bus Stand (is_station=False)
+2025-08-09 02:04:11,963 - INFO - Found coordinates: 13.0695129, 80.199087 for 'Chennai Bus Stand'
+2025-08-09 02:04:11,964 - INFO - Geocoding location: Chennai Bus Terminal (is_station=False)
+2025-08-09 02:04:12,817 - INFO - Found coordinates: 13.1059186, 80.2804327 for 'Chennai Bus Terminal'
+2025-08-09 02:04:12,818 - INFO - Found destination bus stand: Chennai Bus Terminal at (13.1059186, 80.2804327)
+2025-08-09 02:04:12,824 - INFO - Loading station codes from: S:\Project\transp1\Station_code.pdf
+2025-08-09 02:04:12,825 - INFO - Extracting station codes from: S:\Project\transp1\Station_code.pdf
+2025-08-09 02:04:12,833 - INFO - PDF has 14 pages
+2025-08-09 02:04:13,310 - INFO - Loaded 415 station codes from PDF
+2025-08-09 02:04:13,311 - INFO - Loaded 415 station codes
+2025-08-09 02:04:15,580 - INFO - Changed destination station to Chennai Egmore
+2025-08-09 02:04:15,580 - INFO - Bus hub-to-hub distance: 199.3 km
+2025-08-09 02:04:15,580 - INFO - Checking TNSTC direct schedules for 'Chidambaram' -> 'Chennai' on 11/08/2025
+2025-08-09 02:04:15,835 - INFO - Checking TNSTC direct schedules for 'Chidambaram' -> 'Chennai Bus Stand' on 11/08/2025
+2025-08-09 02:04:15,942 - INFO - TNSTC: could not find place IDs for 'chidambaram' or 'chennai bus stand'
+2025-08-09 02:04:15,943 - INFO - Checking TNSTC direct schedules for 'Chidambaram Bus Stand' -> 'Chennai' on 11/08/2025
+2025-08-09 02:04:16,050 - INFO - TNSTC: could not find place IDs for 'chidambaram bus stand' or 'chennai'
+2025-08-09 02:04:16,051 - INFO - Checking TNSTC direct schedules for 'Chidambaram Bus Stand' -> 'Chennai Bus Stand' on 11/08/2025
+2025-08-09 02:04:16,155 - INFO - TNSTC: could not find place IDs for 'chidambaram bus stand' or 'chennai bus stand'
+2025-08-09 02:04:16,155 - INFO - TNSTC: no schedules found for any combination for 'Chidambaram' -> 'Chennai'
+2025-08-09 02:04:16,156 - INFO - Looking up AbhiBus city ID for 'chidambaram' on page https://www.abhibus.com/routes/1530
+2025-08-09 02:04:16,584 - INFO - Looking up AbhiBus city ID for 'chidambaram' on page https://www.abhibus.com/routes/1620
+2025-08-09 02:04:16,902 - INFO - Looking up AbhiBus city ID for 'chidambaram' on page https://www.abhibus.com/routes/1710
+2025-08-09 02:04:17,229 - INFO - Looking up AbhiBus city ID for 'chidambaram' on page https://www.abhibus.com/routes/1800
+2025-08-09 02:04:17,339 - INFO - AbhiBus: found city ID for source 'chidambaram': 1468
+2025-08-09 02:04:17,339 - INFO - Looking up AbhiBus city ID for 'chennai' on page https://www.abhibus.com/routes/1530
+2025-08-09 02:04:17,654 - INFO - Looking up AbhiBus city ID for 'chennai' on page https://www.abhibus.com/routes/1620
+2025-08-09 02:04:17,974 - INFO - Looking up AbhiBus city ID for 'chennai' on page https://www.abhibus.com/routes/1710
+2025-08-09 02:04:18,102 - INFO - AbhiBus: found city ID for dest 'chennai': 6
+2025-08-09 02:04:18,102 - INFO - Checking AbhiBus direct schedules with URL: https://www.abhibus.com/bus_search/chidambaram/1468/chennai/6/11-08-2025/O
+2025-08-09 02:04:18,105 - ERROR - WebDriver error during AbhiBus scrape: Message: Unable to obtain driver for MicrosoftEdge; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+2025-08-09 02:04:18,145 - INFO - Checking RedBus direct schedules for chidambaram -> chennai on 11-Aug-2025
+2025-08-09 02:04:18,146 - ERROR - WebDriver error during RedBus scroll: Message: Unable to obtain driver for MicrosoftEdge; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+2025-08-09 02:04:18,163 - ERROR - RedBus error: Incoming markup is of an invalid type: None. Markup must be a string, a bytestring, or an open filehandle.
+2025-08-09 02:04:18,174 - INFO - 127.0.0.1 - - [09/Aug/2025 02:04:18] "POST /search HTTP/1.1" 200 -
+2025-08-09 02:05:49,095 - INFO -  * Detected change in 's:\\Project\\transp1\\abhibus.py', reloading
+2025-08-09 02:05:49,216 - INFO -  * Restarting with stat
+2025-08-09 02:05:51,857 - WARNING -  * Debugger is active!
+2025-08-09 02:05:51,862 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 02:06:17,322 - INFO -  * Detected change in 's:\\Project\\transp1\\redbus.py', reloading
+2025-08-09 02:06:17,431 - INFO -  * Restarting with stat
+2025-08-09 02:06:20,135 - WARNING -  * Debugger is active!
+2025-08-09 02:06:20,142 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 02:06:21,981 - INFO -  * Detected change in 's:\\Project\\transp1\\abhibus.py', reloading
+2025-08-09 02:06:22,085 - INFO -  * Restarting with stat
+2025-08-09 02:06:24,702 - WARNING -  * Debugger is active!
+2025-08-09 02:06:24,706 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 02:06:34,117 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.10.134:5000
+2025-08-09 02:06:34,165 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-09 02:06:34,166 - INFO -  * Restarting with stat
+2025-08-09 02:06:36,724 - WARNING -  * Debugger is active!
+2025-08-09 02:06:36,729 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 02:06:43,386 - INFO - Search requested: 'Head Post Office Chidambaram' -> 'Rajiv Gandhi Government General Hospital chennai' on 2025-08-11
+2025-08-09 02:06:43,386 - INFO - Geocoding location: Head Post Office Chidambaram (is_station=False)
+2025-08-09 02:06:44,052 - INFO - Found coordinates: 11.4029503, 79.6922518 for 'Head Post Office Chidambaram'
+2025-08-09 02:06:44,052 - INFO - Geocoding location: Rajiv Gandhi Government General Hospital chennai (is_station=False)
+2025-08-09 02:06:45,012 - INFO - Found coordinates: 13.0806077, 80.2773314 for 'Rajiv Gandhi Government General Hospital chennai'
+2025-08-09 02:06:45,012 - INFO - Coordinates: Source=(11.4029503, 79.6922518), Destination=(13.0806077, 80.2773314)
+2025-08-09 02:06:47,021 - INFO - Photon reverse too generic ('None'), falling back to Nominatim for coords (11.4029503, 79.6922518)
+2025-08-09 02:06:47,245 - INFO - Nominatim reverse: using 'Chidambaram' for coords (11.4029503, 79.6922518)
+2025-08-09 02:06:47,245 - INFO - No comma in source input; using reverse-geocoded source city: 'Chidambaram'
+2025-08-09 02:06:49,069 - INFO - Photon reverse too generic ('None'), falling back to Nominatim for coords (13.0806077, 80.2773314)
+2025-08-09 02:06:49,327 - INFO - Nominatim reverse: using 'Chennai' for coords (13.0806077, 80.2773314)
+2025-08-09 02:06:49,327 - INFO - No comma in dest input; using reverse-geocoded destination city: 'Chennai'
+2025-08-09 02:06:49,328 - INFO - Derived source city/town: 'chidambaram', destination city/town: 'chennai'
+2025-08-09 02:06:49,328 - INFO - Geocoding location: Chidambaram (is_station=False)
+2025-08-09 02:06:50,290 - INFO - Found coordinates: 11.3920706, 79.703025 for 'Chidambaram'
+2025-08-09 02:06:50,290 - INFO - Source city-center coords: (11.3920706, 79.703025)
+2025-08-09 02:06:50,290 - INFO - Geocoding location: Chennai (is_station=False)
+2025-08-09 02:06:51,424 - INFO - Found coordinates: 13.0836939, 80.270186 for 'Chennai'
+2025-08-09 02:06:51,424 - INFO - Destination city-center coords: (13.0836939, 80.270186)
+2025-08-09 02:06:51,424 - INFO - Geocoding location: Chidambaram Bus Stand (is_station=False)
+2025-08-09 02:06:52,346 - INFO - Found coordinates: 11.3968705, 79.7006526 for 'Chidambaram Bus Stand'
+2025-08-09 02:06:52,347 - INFO - Found source bus stand: Chidambaram Bus Stand at (11.3968705, 79.7006526)
+2025-08-09 02:06:52,347 - INFO - Geocoding location: Chennai Bus Stand (is_station=False)
+2025-08-09 02:06:53,665 - INFO - Found coordinates: 13.0695129, 80.199087 for 'Chennai Bus Stand'
+2025-08-09 02:06:53,665 - INFO - Geocoding location: Chennai Bus Terminal (is_station=False)
+2025-08-09 02:06:54,496 - INFO - Found coordinates: 13.1059186, 80.2804327 for 'Chennai Bus Terminal'
+2025-08-09 02:06:54,496 - INFO - Found destination bus stand: Chennai Bus Terminal at (13.1059186, 80.2804327)
+2025-08-09 02:06:54,503 - INFO - Loading station codes from: S:\Project\transp1\Station_code.pdf
+2025-08-09 02:06:54,503 - INFO - Extracting station codes from: S:\Project\transp1\Station_code.pdf
+2025-08-09 02:06:54,510 - INFO - PDF has 14 pages
+2025-08-09 02:06:54,973 - INFO - Loaded 415 station codes from PDF
+2025-08-09 02:06:54,973 - INFO - Loaded 415 station codes
+2025-08-09 02:06:56,468 - INFO - Changed destination station to Chennai Egmore
+2025-08-09 02:06:56,469 - INFO - Bus hub-to-hub distance: 199.3 km
+2025-08-09 02:06:56,469 - INFO - Checking TNSTC direct schedules for 'Chidambaram' -> 'Chennai' on 11/08/2025
+2025-08-09 02:06:56,642 - INFO - Checking TNSTC direct schedules for 'Chidambaram' -> 'Chennai Bus Stand' on 11/08/2025
+2025-08-09 02:06:56,741 - INFO - TNSTC: could not find place IDs for 'chidambaram' or 'chennai bus stand'
+2025-08-09 02:06:56,742 - INFO - Checking TNSTC direct schedules for 'Chidambaram Bus Stand' -> 'Chennai' on 11/08/2025
+2025-08-09 02:06:56,853 - INFO - TNSTC: could not find place IDs for 'chidambaram bus stand' or 'chennai'
+2025-08-09 02:06:56,853 - INFO - Checking TNSTC direct schedules for 'Chidambaram Bus Stand' -> 'Chennai Bus Stand' on 11/08/2025
+2025-08-09 02:06:56,966 - INFO - TNSTC: could not find place IDs for 'chidambaram bus stand' or 'chennai bus stand'
+2025-08-09 02:06:56,966 - INFO - TNSTC: no schedules found for any combination for 'Chidambaram' -> 'Chennai'
+2025-08-09 02:06:56,967 - INFO - Looking up AbhiBus city ID for 'chidambaram' on page https://www.abhibus.com/routes/1530
+2025-08-09 02:06:57,284 - INFO - Looking up AbhiBus city ID for 'chidambaram' on page https://www.abhibus.com/routes/1620
+2025-08-09 02:06:57,606 - INFO - Looking up AbhiBus city ID for 'chidambaram' on page https://www.abhibus.com/routes/1710
+2025-08-09 02:06:57,931 - INFO - Looking up AbhiBus city ID for 'chidambaram' on page https://www.abhibus.com/routes/1800
+2025-08-09 02:06:58,036 - INFO - AbhiBus: found city ID for source 'chidambaram': 1468
+2025-08-09 02:06:58,036 - INFO - Looking up AbhiBus city ID for 'chennai' on page https://www.abhibus.com/routes/1530
+2025-08-09 02:06:58,347 - INFO - Looking up AbhiBus city ID for 'chennai' on page https://www.abhibus.com/routes/1620
+2025-08-09 02:06:58,657 - INFO - Looking up AbhiBus city ID for 'chennai' on page https://www.abhibus.com/routes/1710
+2025-08-09 02:06:58,796 - INFO - AbhiBus: found city ID for dest 'chennai': 6
+2025-08-09 02:06:58,796 - INFO - Checking AbhiBus direct schedules with URL: https://www.abhibus.com/bus_search/chidambaram/1468/chennai/6/11-08-2025/O
+2025-08-09 02:07:25,760 - INFO - Checking RedBus direct schedules for chidambaram -> chennai on 11-Aug-2025
+2025-08-09 02:07:58,753 - INFO - 127.0.0.1 - - [09/Aug/2025 02:07:58] "POST /search HTTP/1.1" 200 -
+2025-08-09 02:35:04,921 - INFO -  * Detected change in 's:\\Project\\transp1\\utils.py', reloading
+2025-08-09 02:35:05,048 - INFO -  * Restarting with stat
+2025-08-09 02:35:09,501 - WARNING -  * Debugger is active!
+2025-08-09 02:35:09,505 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 02:35:20,615 - INFO -  * Detected change in 's:\\Project\\transp1\\main.py', reloading
+2025-08-09 02:35:20,727 - INFO -  * Restarting with stat
+2025-08-09 02:35:23,342 - WARNING -  * Debugger is active!
+2025-08-09 02:35:23,347 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 02:38:16,890 - INFO -  * Detected change in 's:\\Project\\transp1\\IRCTC.py', reloading
+2025-08-09 02:38:17,002 - INFO -  * Restarting with stat
+2025-08-09 02:38:19,791 - WARNING -  * Debugger is active!
+2025-08-09 02:38:19,796 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 02:39:06,478 - INFO -  * Detected change in 's:\\Project\\transp1\\main.py', reloading
+2025-08-09 02:39:06,582 - INFO -  * Restarting with stat
+2025-08-09 02:39:09,173 - WARNING -  * Debugger is active!
+2025-08-09 02:39:09,177 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 02:39:37,138 - INFO -  * Detected change in 's:\\Project\\transp1\\main.py', reloading
+2025-08-09 02:39:37,239 - INFO -  * Restarting with stat
+2025-08-09 02:39:39,735 - WARNING -  * Debugger is active!
+2025-08-09 02:39:39,739 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 02:39:59,953 - INFO -  * Detected change in 's:\\Project\\transp1\\utils.py', reloading
+2025-08-09 02:40:00,072 - INFO -  * Restarting with stat
+2025-08-09 02:40:02,551 - WARNING -  * Debugger is active!
+2025-08-09 02:40:02,555 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 02:40:05,924 - INFO -  * Detected change in 's:\\Project\\transp1\\utils.py', reloading
+2025-08-09 02:40:06,023 - INFO -  * Restarting with stat
+2025-08-09 02:40:08,442 - WARNING -  * Debugger is active!
+2025-08-09 02:40:08,446 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 02:40:18,026 - INFO -  * Detected change in 's:\\Project\\transp1\\IRCTC.py', reloading
+2025-08-09 02:40:18,125 - INFO -  * Restarting with stat
+2025-08-09 02:40:20,616 - WARNING -  * Debugger is active!
+2025-08-09 02:40:20,621 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 02:40:26,286 - INFO -  * Detected change in 's:\\Project\\transp1\\IRCTC.py', reloading
+2025-08-09 02:40:26,393 - INFO -  * Restarting with stat
+2025-08-09 02:40:28,763 - WARNING -  * Debugger is active!
+2025-08-09 02:40:28,767 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 02:40:30,576 - INFO -  * Detected change in 's:\\Project\\transp1\\IRCTC.py', reloading
+2025-08-09 02:40:30,679 - INFO -  * Restarting with stat
+2025-08-09 02:40:33,152 - WARNING -  * Debugger is active!
+2025-08-09 02:40:33,156 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 02:40:36,257 - INFO -  * Detected change in 's:\\Project\\transp1\\IRCTC.py', reloading
+2025-08-09 02:40:36,363 - INFO -  * Restarting with stat
+2025-08-09 02:40:38,771 - WARNING -  * Debugger is active!
+2025-08-09 02:40:38,776 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 02:40:45,746 - INFO -  * Detected change in 's:\\Project\\transp1\\IRCTC.py', reloading
+2025-08-09 02:40:45,849 - INFO -  * Restarting with stat
+2025-08-09 02:40:48,538 - WARNING -  * Debugger is active!
+2025-08-09 02:40:48,543 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 02:41:10,033 - INFO -  * Detected change in 's:\\Project\\transp1\\mtc.py', reloading
+2025-08-09 02:41:10,130 - INFO -  * Restarting with stat
+2025-08-09 02:41:12,487 - WARNING -  * Debugger is active!
+2025-08-09 02:41:12,494 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 02:41:13,178 - INFO -  * Detected change in 's:\\Project\\transp1\\mtc.py', reloading
+2025-08-09 02:41:13,284 - INFO -  * Restarting with stat
+2025-08-09 02:41:15,903 - WARNING -  * Debugger is active!
+2025-08-09 02:41:15,907 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 02:41:26,791 - INFO -  * Detected change in 's:\\Project\\transp1\\main.py', reloading
+2025-08-09 02:41:26,898 - INFO -  * Restarting with stat
+2025-08-09 02:41:29,395 - WARNING -  * Debugger is active!
+2025-08-09 02:41:29,399 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 02:42:24,072 - INFO -  * Detected change in 's:\\Project\\transp1\\main.py', reloading
+2025-08-09 02:42:24,176 - INFO -  * Restarting with stat
+2025-08-09 03:02:11,254 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.10.134:5000
+2025-08-09 03:02:11,255 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-09 03:02:11,257 - INFO -  * Restarting with stat
+2025-08-09 03:02:13,594 - WARNING -  * Debugger is active!
+2025-08-09 03:02:13,599 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 03:02:25,579 - INFO - 127.0.0.1 - - [09/Aug/2025 03:02:25] "[32mGET / HTTP/1.1[0m" 302 -
+2025-08-09 03:02:25,658 - INFO - 127.0.0.1 - - [09/Aug/2025 03:02:25] "[35m[1mGET /journey-planner HTTP/1.1[0m" 500 -
+2025-08-09 03:02:25,816 - INFO - 127.0.0.1 - - [09/Aug/2025 03:02:25] "GET /journey-planner?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-08-09 03:02:25,821 - INFO - 127.0.0.1 - - [09/Aug/2025 03:02:25] "GET /journey-planner?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-08-09 03:02:26,009 - INFO - 127.0.0.1 - - [09/Aug/2025 03:02:26] "GET /journey-planner?__debugger__=yes&cmd=resource&f=console.png&s=dkADxzzCY8qMJBpAF3x3 HTTP/1.1" 200 -
+2025-08-09 03:02:26,581 - INFO - 127.0.0.1 - - [09/Aug/2025 03:02:26] "GET /journey-planner?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-08-09 03:02:50,671 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.10.134:5000
+2025-08-09 03:02:50,671 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-09 03:02:50,673 - INFO -  * Restarting with stat
+2025-08-09 03:02:53,344 - WARNING -  * Debugger is active!
+2025-08-09 03:02:53,349 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 03:03:19,697 - INFO - 127.0.0.1 - - [09/Aug/2025 03:03:19] "[32mGET / HTTP/1.1[0m" 302 -
+2025-08-09 03:03:19,801 - INFO - 127.0.0.1 - - [09/Aug/2025 03:03:19] "[35m[1mGET /journey-planner HTTP/1.1[0m" 500 -
+2025-08-09 03:03:19,952 - INFO - 127.0.0.1 - - [09/Aug/2025 03:03:19] "[36mGET /journey-planner?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-08-09 03:03:19,953 - INFO - 127.0.0.1 - - [09/Aug/2025 03:03:19] "[36mGET /journey-planner?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-08-09 03:03:20,205 - INFO - 127.0.0.1 - - [09/Aug/2025 03:03:20] "GET /journey-planner?__debugger__=yes&cmd=resource&f=console.png&s=tfSZuvLYeYLHcQvb8KTI HTTP/1.1" 200 -
+2025-08-09 03:08:27,179 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.10.134:5000
+2025-08-09 03:08:27,180 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-09 03:08:27,181 - INFO -  * Restarting with stat
+2025-08-09 03:08:29,883 - WARNING -  * Debugger is active!
+2025-08-09 03:08:29,886 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 03:08:38,491 - INFO - 127.0.0.1 - - [09/Aug/2025 03:08:38] "[32mGET / HTTP/1.1[0m" 302 -
+2025-08-09 03:08:38,545 - INFO - 127.0.0.1 - - [09/Aug/2025 03:08:38] "[35m[1mGET /journey-planner HTTP/1.1[0m" 500 -
+2025-08-09 03:08:38,697 - INFO - 127.0.0.1 - - [09/Aug/2025 03:08:38] "[36mGET /journey-planner?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-08-09 03:08:38,698 - INFO - 127.0.0.1 - - [09/Aug/2025 03:08:38] "[36mGET /journey-planner?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-08-09 03:08:38,841 - INFO - 127.0.0.1 - - [09/Aug/2025 03:08:38] "GET /journey-planner?__debugger__=yes&cmd=resource&f=console.png&s=LrXLcMHZQBjH6w8XE0K0 HTTP/1.1" 200 -
+2025-08-09 03:08:48,689 - INFO -  * Detected change in 's:\\Project\\transp1\\main.py', reloading
+2025-08-09 03:08:58,554 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.10.134:5000
+2025-08-09 03:08:58,554 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-09 03:08:58,555 - INFO -  * Restarting with stat
+2025-08-09 03:09:01,097 - WARNING -  * Debugger is active!
+2025-08-09 03:09:01,100 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 03:09:03,209 - INFO - 127.0.0.1 - - [09/Aug/2025 03:09:03] "[35m[1mGET /journey-planner HTTP/1.1[0m" 500 -
+2025-08-09 03:09:03,315 - INFO - 127.0.0.1 - - [09/Aug/2025 03:09:03] "[36mGET /journey-planner?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-08-09 03:09:03,318 - INFO - 127.0.0.1 - - [09/Aug/2025 03:09:03] "[36mGET /journey-planner?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-08-09 03:09:03,340 - INFO - 127.0.0.1 - - [09/Aug/2025 03:09:03] "GET /journey-planner?__debugger__=yes&cmd=resource&f=console.png&s=RH4QkIAorm3D71WOqC2Q HTTP/1.1" 200 -
+2025-08-09 03:10:08,654 - INFO -  * Detected change in 's:\\Project\\transp1\\main.py', reloading
+2025-08-09 03:10:08,815 - INFO -  * Restarting with stat
+2025-08-09 03:10:11,402 - WARNING -  * Debugger is active!
+2025-08-09 03:10:11,406 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 03:16:08,133 - INFO -  * Detected change in 's:\\Project\\transp1\\main.py', reloading
+2025-08-09 03:16:08,232 - INFO -  * Restarting with stat
+2025-08-09 03:16:11,150 - WARNING -  * Debugger is active!
+2025-08-09 03:16:11,157 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 03:18:03,624 - INFO -  * Detected change in 's:\\Project\\transp1\\main.py', reloading
+2025-08-09 03:18:03,729 - INFO -  * Restarting with stat
+2025-08-09 03:18:06,250 - WARNING -  * Debugger is active!
+2025-08-09 03:18:06,254 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 03:18:13,616 - INFO - 127.0.0.1 - - [09/Aug/2025 03:18:13] "GET /journey-planner HTTP/1.1" 200 -
+2025-08-09 03:18:26,716 - INFO - Search requested: 'Head Post Office Chidambaram' -> 'Rajiv Gandhi Government General Hospital chennai' on 2025-08-09
+2025-08-09 03:18:26,717 - INFO - Geocoding location: Head Post Office Chidambaram (is_station=False)
+2025-08-09 03:18:27,836 - INFO - Found coordinates: 11.4029503, 79.6922518 for 'Head Post Office Chidambaram'
+2025-08-09 03:18:27,837 - INFO - Geocoding location: Rajiv Gandhi Government General Hospital chennai (is_station=False)
+2025-08-09 03:18:28,817 - INFO - Found coordinates: 13.0806077, 80.2773314 for 'Rajiv Gandhi Government General Hospital chennai'
+2025-08-09 03:18:28,818 - INFO - Coordinates: Source=(11.4029503, 79.6922518), Destination=(13.0806077, 80.2773314)
+2025-08-09 03:18:33,533 - INFO - Photon reverse too generic ('None'), falling back to Nominatim for coords (11.4029503, 79.6922518)
+2025-08-09 03:18:33,766 - INFO - Nominatim reverse: using 'Chidambaram' for coords (11.4029503, 79.6922518)
+2025-08-09 03:18:33,767 - INFO - No comma in source input; using reverse-geocoded source city: 'Chidambaram'
+2025-08-09 03:18:37,358 - INFO - Photon reverse too generic ('None'), falling back to Nominatim for coords (13.0806077, 80.2773314)
+2025-08-09 03:18:37,616 - INFO - Nominatim reverse: using 'Chennai' for coords (13.0806077, 80.2773314)
+2025-08-09 03:18:37,616 - INFO - No comma in dest input; using reverse-geocoded destination city: 'Chennai'
+2025-08-09 03:18:37,616 - INFO - Derived source city/town: 'chidambaram', destination city/town: 'chennai'
+2025-08-09 03:18:37,616 - INFO - Geocoding location: Chidambaram (is_station=False)
+2025-08-09 03:18:38,584 - INFO - Found coordinates: 11.3920706, 79.703025 for 'Chidambaram'
+2025-08-09 03:18:38,585 - INFO - Source city-center coords: (11.3920706, 79.703025)
+2025-08-09 03:18:38,585 - INFO - Geocoding location: Chennai (is_station=False)
+2025-08-09 03:18:39,606 - INFO - Found coordinates: 13.0836939, 80.270186 for 'Chennai'
+2025-08-09 03:18:39,606 - INFO - Destination city-center coords: (13.0836939, 80.270186)
+2025-08-09 03:18:39,606 - INFO - Geocoding location: Chidambaram Bus Stand (is_station=False)
+2025-08-09 03:18:40,570 - INFO - Found coordinates: 11.3968705, 79.7006526 for 'Chidambaram Bus Stand'
+2025-08-09 03:18:40,571 - INFO - Found source bus stand: Chidambaram Bus Stand at (11.3968705, 79.7006526)
+2025-08-09 03:18:40,571 - INFO - Geocoding location: Chennai Bus Stand (is_station=False)
+2025-08-09 03:18:41,815 - INFO - Found coordinates: 13.0695129, 80.199087 for 'Chennai Bus Stand'
+2025-08-09 03:18:41,816 - INFO - Geocoding location: Chennai Bus Terminal (is_station=False)
+2025-08-09 03:18:42,686 - INFO - Found coordinates: 13.1059186, 80.2804327 for 'Chennai Bus Terminal'
+2025-08-09 03:18:42,687 - INFO - Found destination bus stand: Chennai Bus Terminal at (13.1059186, 80.2804327)
+2025-08-09 03:18:42,707 - INFO - Loading station codes from: S:\Project\transp1\Station_code.pdf
+2025-08-09 03:18:42,707 - INFO - Extracting station codes from: S:\Project\transp1\Station_code.pdf
+2025-08-09 03:18:42,725 - INFO - PDF has 14 pages
+2025-08-09 03:18:43,187 - INFO - Loaded 415 station codes from PDF
+2025-08-09 03:18:43,187 - INFO - Loaded 415 station codes
+2025-08-09 03:18:45,043 - INFO - Changed destination station to Chennai Egmore
+2025-08-09 03:18:45,043 - INFO - Bus hub-to-hub distance: 199.3 km
+2025-08-09 03:18:45,044 - INFO - Checking TNSTC direct schedules for 'Chidambaram' -> 'Chennai' on 09/08/2025
+2025-08-09 03:18:53,995 - INFO - Looking up AbhiBus city ID for 'chidambaram' on page https://www.abhibus.com/routes/1530
+2025-08-09 03:18:54,424 - INFO - Looking up AbhiBus city ID for 'chidambaram' on page https://www.abhibus.com/routes/1620
+2025-08-09 03:18:54,735 - INFO - Looking up AbhiBus city ID for 'chidambaram' on page https://www.abhibus.com/routes/1710
+2025-08-09 03:18:55,053 - INFO - Looking up AbhiBus city ID for 'chidambaram' on page https://www.abhibus.com/routes/1800
+2025-08-09 03:18:55,163 - INFO - AbhiBus: found city ID for source 'chidambaram': 1468
+2025-08-09 03:18:55,164 - INFO - Looking up AbhiBus city ID for 'chennai' on page https://www.abhibus.com/routes/1530
+2025-08-09 03:18:55,480 - INFO - Looking up AbhiBus city ID for 'chennai' on page https://www.abhibus.com/routes/1620
+2025-08-09 03:18:55,794 - INFO - Looking up AbhiBus city ID for 'chennai' on page https://www.abhibus.com/routes/1710
+2025-08-09 03:18:55,903 - INFO - AbhiBus: found city ID for dest 'chennai': 6
+2025-08-09 03:18:55,903 - INFO - Checking AbhiBus direct schedules with URL: https://www.abhibus.com/bus_search/chidambaram/1468/chennai/6/09-08-2025/O
+2025-08-09 03:19:13,402 - INFO - Checking RedBus direct schedules for chidambaram -> chennai on 09-Aug-2025
+2025-08-09 03:19:44,596 - INFO - Sending IRCTC API request (attempt 1/3)...
+2025-08-09 03:19:44,596 - INFO - Source: Chidambaram, Destination: Chennai, Date: 2025-08-09
+2025-08-09 03:19:44,935 - INFO - API response status: 200
+2025-08-09 03:19:44,936 - ERROR - Error fetching train schedules: string indices must be integers, not 'str'
+2025-08-09 03:19:44,948 - INFO - 127.0.0.1 - - [09/Aug/2025 03:19:44] "POST /search HTTP/1.1" 200 -
+2025-08-09 03:21:48,256 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.10.134:5000
+2025-08-09 03:21:48,256 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-09 03:21:48,258 - INFO -  * Restarting with stat
+2025-08-09 03:21:50,776 - WARNING -  * Debugger is active!
+2025-08-09 03:21:50,780 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 03:22:01,427 - INFO - 127.0.0.1 - - [09/Aug/2025 03:22:01] "[32mGET / HTTP/1.1[0m" 302 -
+2025-08-09 03:22:01,437 - INFO - 127.0.0.1 - - [09/Aug/2025 03:22:01] "GET /journey-planner HTTP/1.1" 200 -
+2025-08-09 03:22:16,202 - INFO - 127.0.0.1 - - [09/Aug/2025 03:22:16] "[32mGET / HTTP/1.1[0m" 302 -
+2025-08-09 03:22:16,510 - INFO - 127.0.0.1 - - [09/Aug/2025 03:22:16] "GET /journey-planner HTTP/1.1" 200 -
+2025-08-09 03:22:17,730 - INFO - 127.0.0.1 - - [09/Aug/2025 03:22:17] "[32mGET / HTTP/1.1[0m" 302 -
+2025-08-09 03:22:17,960 - INFO - 127.0.0.1 - - [09/Aug/2025 03:22:17] "GET /journey-planner HTTP/1.1" 200 -
+2025-08-09 03:22:30,921 - INFO - 127.0.0.1 - - [09/Aug/2025 03:22:30] "GET /login HTTP/1.1" 200 -
+2025-08-09 03:22:40,106 - INFO - 127.0.0.1 - - [09/Aug/2025 03:22:40] "GET /register HTTP/1.1" 200 -
+2025-08-09 03:22:54,097 - INFO - 127.0.0.1 - - [09/Aug/2025 03:22:54] "[32mPOST /register HTTP/1.1[0m" 302 -
+2025-08-09 03:22:54,265 - INFO - 127.0.0.1 - - [09/Aug/2025 03:22:54] "GET /login HTTP/1.1" 200 -
+2025-08-09 03:23:04,917 - INFO - 127.0.0.1 - - [09/Aug/2025 03:23:04] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-08-09 03:23:04,928 - INFO - 127.0.0.1 - - [09/Aug/2025 03:23:04] "GET /journey-planner HTTP/1.1" 200 -
+2025-08-09 03:23:19,864 - INFO - 127.0.0.1 - - [09/Aug/2025 03:23:19] "[32mGET / HTTP/1.1[0m" 302 -
+2025-08-09 03:23:20,172 - INFO - 127.0.0.1 - - [09/Aug/2025 03:23:20] "GET /journey-planner HTTP/1.1" 200 -
+2025-08-09 03:23:38,944 - INFO - 127.0.0.1 - - [09/Aug/2025 03:23:38] "GET /profile HTTP/1.1" 200 -
+2025-08-09 03:23:45,752 - INFO - 127.0.0.1 - - [09/Aug/2025 03:23:45] "GET /history HTTP/1.1" 200 -
+2025-08-09 03:23:52,854 - INFO - 127.0.0.1 - - [09/Aug/2025 03:23:52] "GET /profile HTTP/1.1" 200 -
+2025-08-09 11:58:20,368 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.162.36:5000
+2025-08-09 11:58:20,368 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-09 11:58:20,372 - INFO -  * Restarting with stat
+2025-08-09 11:58:24,545 - WARNING -  * Debugger is active!
+2025-08-09 11:58:24,552 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 11:58:29,384 - INFO - 127.0.0.1 - - [09/Aug/2025 11:58:29] "[32mGET / HTTP/1.1[0m" 302 -
+2025-08-09 11:58:29,459 - INFO - 127.0.0.1 - - [09/Aug/2025 11:58:29] "GET /login HTTP/1.1" 200 -
+2025-08-09 11:58:33,291 - INFO - 127.0.0.1 - - [09/Aug/2025 11:58:33] "[32mGET /history HTTP/1.1[0m" 302 -
+2025-08-09 11:58:33,316 - INFO - 127.0.0.1 - - [09/Aug/2025 11:58:33] "GET /login HTTP/1.1" 200 -
+2025-08-09 11:58:36,121 - INFO - 127.0.0.1 - - [09/Aug/2025 11:58:36] "GET /journey-planner HTTP/1.1" 200 -
+2025-08-09 12:01:38,844 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.162.36:5000
+2025-08-09 12:01:38,845 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-09 12:01:38,849 - INFO -  * Restarting with stat
+2025-08-09 12:01:42,598 - WARNING -  * Debugger is active!
+2025-08-09 12:01:42,605 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 12:01:44,936 - INFO - 127.0.0.1 - - [09/Aug/2025 12:01:44] "GET /login HTTP/1.1" 200 -
+2025-08-09 12:01:48,656 - INFO - 127.0.0.1 - - [09/Aug/2025 12:01:48] "[32mGET /journey-planner HTTP/1.1[0m" 302 -
+2025-08-09 12:01:48,703 - INFO - 127.0.0.1 - - [09/Aug/2025 12:01:48] "GET /login HTTP/1.1" 200 -
+2025-08-09 12:01:51,035 - INFO - 127.0.0.1 - - [09/Aug/2025 12:01:51] "[32mGET / HTTP/1.1[0m" 302 -
+2025-08-09 12:01:51,069 - INFO - 127.0.0.1 - - [09/Aug/2025 12:01:51] "GET /login HTTP/1.1" 200 -
+2025-08-09 12:01:52,255 - INFO - 127.0.0.1 - - [09/Aug/2025 12:01:52] "[32mGET /history HTTP/1.1[0m" 302 -
+2025-08-09 12:01:52,291 - INFO - 127.0.0.1 - - [09/Aug/2025 12:01:52] "GET /login HTTP/1.1" 200 -
+2025-08-09 12:01:53,481 - INFO - 127.0.0.1 - - [09/Aug/2025 12:01:53] "[32mGET /journey-planner HTTP/1.1[0m" 302 -
+2025-08-09 12:01:53,514 - INFO - 127.0.0.1 - - [09/Aug/2025 12:01:53] "GET /login HTTP/1.1" 200 -
+2025-08-09 12:02:02,184 - INFO - 127.0.0.1 - - [09/Aug/2025 12:02:02] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-08-09 12:02:02,201 - INFO - 127.0.0.1 - - [09/Aug/2025 12:02:02] "GET /journey-planner HTTP/1.1" 200 -
+2025-08-09 12:02:18,227 - INFO - 127.0.0.1 - - [09/Aug/2025 12:02:18] "[32mGET / HTTP/1.1[0m" 302 -
+2025-08-09 12:02:18,259 - INFO - 127.0.0.1 - - [09/Aug/2025 12:02:18] "GET /login HTTP/1.1" 200 -
+2025-08-09 12:02:21,441 - INFO - 127.0.0.1 - - [09/Aug/2025 12:02:21] "GET /history HTTP/1.1" 200 -
+2025-08-09 12:02:28,033 - INFO - 127.0.0.1 - - [09/Aug/2025 12:02:28] "GET /journey-planner HTTP/1.1" 200 -
+2025-08-09 12:03:00,299 - INFO -  * Detected change in 's:\\Project\\transp1\\main.py', reloading
+2025-08-09 12:03:00,508 - INFO -  * Restarting with stat
+2025-08-09 12:09:32,798 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.162.36:5000
+2025-08-09 12:09:32,798 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-09 12:09:32,801 - INFO -  * Restarting with stat
+2025-08-09 12:09:36,600 - WARNING -  * Debugger is active!
+2025-08-09 12:09:36,613 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 12:09:38,946 - INFO - 127.0.0.1 - - [09/Aug/2025 12:09:38] "[32mGET / HTTP/1.1[0m" 302 -
+2025-08-09 12:09:38,999 - INFO - 127.0.0.1 - - [09/Aug/2025 12:09:38] "GET /login HTTP/1.1" 200 -
+2025-08-09 12:09:46,588 - INFO - 127.0.0.1 - - [09/Aug/2025 12:09:46] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-08-09 12:09:46,604 - INFO - 127.0.0.1 - - [09/Aug/2025 12:09:46] "GET /home HTTP/1.1" 200 -
+2025-08-09 12:09:58,892 - INFO - 127.0.0.1 - - [09/Aug/2025 12:09:58] "GET /journey-planner HTTP/1.1" 200 -
+2025-08-09 12:10:04,971 - INFO - 127.0.0.1 - - [09/Aug/2025 12:10:04] "[32mGET / HTTP/1.1[0m" 302 -
+2025-08-09 12:10:05,012 - INFO - 127.0.0.1 - - [09/Aug/2025 12:10:05] "GET /login HTTP/1.1" 200 -
+2025-08-09 12:10:06,748 - INFO - 127.0.0.1 - - [09/Aug/2025 12:10:06] "GET /history HTTP/1.1" 200 -
+2025-08-09 12:10:58,082 - INFO - 127.0.0.1 - - [09/Aug/2025 12:10:58] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-08-09 12:10:58,111 - INFO - 127.0.0.1 - - [09/Aug/2025 12:10:58] "[32mGET /journey-planner HTTP/1.1[0m" 302 -
+2025-08-09 12:10:58,150 - INFO - 127.0.0.1 - - [09/Aug/2025 12:10:58] "GET /login HTTP/1.1" 200 -
+2025-08-09 12:11:04,934 - INFO - 127.0.0.1 - - [09/Aug/2025 12:11:04] "POST /login HTTP/1.1" 200 -
+2025-08-09 12:11:10,922 - INFO - 127.0.0.1 - - [09/Aug/2025 12:11:10] "[32mGET /journey-planner HTTP/1.1[0m" 302 -
+2025-08-09 12:11:10,962 - INFO - 127.0.0.1 - - [09/Aug/2025 12:11:10] "GET /login HTTP/1.1" 200 -
+2025-08-09 12:14:32,884 - INFO -  * Detected change in 's:\\Project\\transp1\\main.py', reloading
+2025-08-09 12:14:33,137 - INFO -  * Restarting with stat
+2025-08-09 12:14:37,128 - WARNING -  * Debugger is active!
+2025-08-09 12:14:37,135 - INFO -  * Debugger PIN: 767-221-059
+2025-08-09 12:14:41,132 - INFO - 127.0.0.1 - - [09/Aug/2025 12:14:41] "GET /login HTTP/1.1" 200 -
+2025-08-09 12:14:48,366 - INFO - 127.0.0.1 - - [09/Aug/2025 12:14:48] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-08-09 12:14:48,385 - INFO - 127.0.0.1 - - [09/Aug/2025 12:14:48] "GET /home HTTP/1.1" 200 -
+2025-08-09 12:14:50,602 - INFO - 127.0.0.1 - - [09/Aug/2025 12:14:50] "GET /journey-planner HTTP/1.1" 200 -
+2025-08-09 12:15:03,997 - INFO - 127.0.0.1 - - [09/Aug/2025 12:15:03] "[32mGET / HTTP/1.1[0m" 302 -
+2025-08-09 12:15:04,041 - INFO - 127.0.0.1 - - [09/Aug/2025 12:15:04] "GET /home HTTP/1.1" 200 -
+2025-08-09 12:15:06,972 - INFO - 127.0.0.1 - - [09/Aug/2025 12:15:06] "GET /history HTTP/1.1" 200 -
+2025-08-09 12:15:15,334 - INFO - 127.0.0.1 - - [09/Aug/2025 12:15:15] "GET /profile HTTP/1.1" 200 -
+2025-08-09 12:15:17,391 - INFO - 127.0.0.1 - - [09/Aug/2025 12:15:17] "[32mGET / HTTP/1.1[0m" 302 -
+2025-08-09 12:15:17,424 - INFO - 127.0.0.1 - - [09/Aug/2025 12:15:17] "GET /home HTTP/1.1" 200 -
+2025-08-09 12:15:20,947 - INFO - 127.0.0.1 - - [09/Aug/2025 12:15:20] "GET /journey-planner HTTP/1.1" 200 -
+2025-08-09 12:15:33,498 - INFO - 127.0.0.1 - - [09/Aug/2025 12:15:33] "GET /login HTTP/1.1" 200 -
+2025-08-09 12:15:44,851 - INFO - 127.0.0.1 - - [09/Aug/2025 12:15:44] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-08-09 12:15:44,878 - INFO - 127.0.0.1 - - [09/Aug/2025 12:15:44] "[32mGET /journey-planner HTTP/1.1[0m" 302 -
+2025-08-09 12:15:44,907 - INFO - 127.0.0.1 - - [09/Aug/2025 12:15:44] "GET /login HTTP/1.1" 200 -
+2025-08-09 12:20:58,532 - INFO -  * Detected change in 's:\\Project\\transp1\\main.py', reloading
+2025-08-09 12:20:58,793 - INFO -  * Restarting with stat
+2025-08-09 12:21:03,433 - WARNING -  * Debugger is active!
+2025-08-09 12:21:03,440 - INFO -  * Debugger PIN: 767-221-059
