@@ -41,7 +41,7 @@ def get_fully_scrolled_html(url):
     try:
         # Initialize WebDriver with Docker-compatible path
         service = EdgeService(
-            executable_path=r'S:\Project\transp1\webdriver\msedgedriver.exe',  # Docker path
+            executable_path=r'S:\Project\example\webdriver\msedgedriver.exe',  # Docker path
             service_args=['--verbose']  # Enable logging if needed
         )
         driver = webdriver.Edge(service=service, options=options)

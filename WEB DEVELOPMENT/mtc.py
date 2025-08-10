@@ -7,9 +7,6 @@ from fuzzywuzzy import process, fuzz
 from geopy.exc import GeocoderTimedOut
 from geopy.geocoders import Nominatim
 import requests
-import os
-import sys
-import logging
 from utils import haversine_distance, normalize_stop_name, get_min_max_fare, replace_bus_terminal_names, get_transport_icon
 from geopy.geocoders import Nominatim
 import overpy
@@ -241,9 +238,18 @@ def build_route_steps(source_input, dest_input, source_coords, source_hub_coords
         except:
             pass
 
-    # Replace bus terminal names with C.M.B.T
+    # Initialize display names with proper default values
     source_hub_display = replace_bus_terminal_names(source_hub_name)
+    if source_hub_name == "CHENNAI EGMORE":
+        source_hub_display = "EGMORE"
+    elif source_hub_name == "CHENNAI CENTRAL":
+        source_hub_display = "CENTRAL"
+    
     dest_hub_display = replace_bus_terminal_names(dest_hub_name)
+    if dest_hub_name == "CHENNAI EGMORE":
+        dest_hub_display = "EGMORE"
+    elif dest_hub_name == "CHENNAI CENTRAL":
+        dest_hub_display = "CENTRAL"
 
     # Step 1: "You" starting point
     steps.append({
@@ -434,35 +440,46 @@ def build_route_steps(source_input, dest_input, source_coords, source_hub_coords
                 all_options.extend(pair_options)
         return all_options, start_bus, end_bus
 
+
     # Cache key based on source_hub_name, dest_hub_name, and transport mode
     mode = "bus" if is_bus else "train"
     cache_key = (source_hub_name, dest_hub_name, mode)
 
-    # First mile (source to source hub)
+    # First mile distance calculation
     first_mile_dist = geodesic(source_coords, source_hub_coords).km
     first_mode = "walk" if first_mile_dist <= 1 else "auto"
     first_fare = get_min_max_fare(first_mile_dist, is_night) if first_mode == "auto" else 0
     first_mile_url = (f"https://www.google.com/maps/dir/?api=1&origin={source_coords[0]},{source_coords[1]}"
                       f"&destination={source_hub_coords[0]},{source_hub_coords[1]}&travelmode=driving")
 
-    # Handle source as Chennai Bus Station (C.M.B.T) for buses
-    if source_hub_display == "C.M.B.T" and is_bus:
+    # ====== FIRST MILE HANDLING ======
+    is_special_source = (
+        (is_bus and source_hub_display == "C.M.B.T") or 
+        (not is_bus and source_hub_display == "EGMORE")
+    )
+    
+    if is_special_source:
         # Check cache for MTC routes
         if cache_key in mtc_route_cache:
             all_options, start_bus, end_bus = mtc_route_cache[cache_key]
         else:
-            # Find MTC routes from source_input to C.M.B.T
-            all_options, start_bus, end_bus = find_mtc_routes(source_input, "C.M.B.T", source_coords, source_hub_coords)
+            # Find MTC routes from source location to hub
+            all_options, start_bus, end_bus = find_mtc_routes(
+                source_input, 
+                source_hub_display,
+                source_coords, 
+                source_hub_coords
+            )
             mtc_route_cache[cache_key] = (all_options, start_bus, end_bus)
         
         # First mile to source stop
         if start_bus:
-            start_mile_dist = geodesic(source_coords, start_bus[0]["coords"]).km if start_bus[0]["coords"] else first_mile_dist
+            start_mile_dist = geodesic(source_coords, start_bus[0]["coords"]).km if start_bus[0].get("coords") else first_mile_dist
             start_mode = "walk" if start_mile_dist <= 1 else "auto"
             start_fare = get_min_max_fare(start_mile_dist, is_night) if start_mode == "auto" else 0
             start_mile_url = (f"https://www.google.com/maps/dir/?api=1&origin={source_coords[0]},{source_coords[1]}"
                               f"&destination={start_bus[0]['coords'][0]},{start_bus[0]['coords'][1]}&travelmode=driving"
-                              if start_bus[0]["coords"] else first_mile_url)
+                              if start_bus[0].get("coords") else first_mile_url)
             steps.append({
                 "mode": start_mode,
                 "description": f"To {start_bus[0]['name']}",
@@ -478,7 +495,8 @@ def build_route_steps(source_input, dest_input, source_coords, source_hub_coords
                 "fare": first_fare,
                 "map_url": first_mile_url
             })
-        # MTC route to C.M.B.T
+        
+        # Add MTC route to hub
         seen_routes = set()
         for option in all_options[:1]:  # Limit to one MTC route
             fare = (option['min_fare'], option['max_fare'])
@@ -514,30 +532,37 @@ def build_route_steps(source_input, dest_input, source_coords, source_hub_coords
             "map_url": first_mile_url
         })
 
-    # Main transport
-    transport_icon = "Bus" if is_bus else "Train"
+    # ====== MAIN TRANSPORT ======
     steps.append({
         "mode": "bus" if is_bus else "train",
-        "description": f"{transport_icon} to {dest_hub_display}",
+        "description": f"{'Bus' if is_bus else 'Train'} to {dest_hub_display}",
         "distance_km": round(hub_to_hub_distance, 1) if hub_to_hub_distance else None,
         "fare": None,
         "map_url": None
     })
 
-    # Handle destination as Chennai Bus Station (C.M.B.T) for buses or railway station for trains
-    if dest_hub_display == "C.M.B.T" and is_bus:
-        # For buses, assume destination hub is C.M.B.T
-        mtc_start = "C.M.B.T"
-        mtc_start_coords = dest_hub_coords
+    # ====== LAST MILE HANDLING ======
+    is_special_destination = (
+        (is_bus and dest_hub_display == "C.M.B.T") or 
+        (not is_bus and dest_hub_display == "EGMORE")
+    )
+    
+    if is_special_destination:
+        mtc_start = dest_hub_display
         # Check cache for MTC routes
         if cache_key in mtc_route_cache:
             all_options, start_bus, end_bus = mtc_route_cache[cache_key]
         else:
-            # Find MTC routes from C.M.B.T to dest_input
-            all_options, start_bus, end_bus = find_mtc_routes(mtc_start, dest_input, mtc_start_coords, dest_coords)
+            # Find MTC routes from hub to destination
+            all_options, start_bus, end_bus = find_mtc_routes(
+                mtc_start, 
+                dest_input,
+                dest_hub_coords, 
+                dest_coords
+            )
             mtc_route_cache[cache_key] = (all_options, start_bus, end_bus)
         
-        # MTC route from C.M.B.T
+        # Add MTC routes from hub
         seen_routes = set()
         for option in all_options[:1]:  # Limit to one MTC route
             fare = (option['min_fare'], option['max_fare'])
@@ -552,6 +577,10 @@ def build_route_steps(source_input, dest_input, source_coords, source_hub_coords
                         "fare": fare,
                         "map_url": None
                     })
+                    # Update destination coordinates for final last mile
+                    if option['end'].get('coords'):
+                        dest_hub_coords = option['end']['coords']
+                        dest_hub_display = option['end']['name']
             else:
                 route_key = (option['route1'], option['route2'], option['transfer_point'])
                 if route_key not in seen_routes:
@@ -563,46 +592,12 @@ def build_route_steps(source_input, dest_input, source_coords, source_hub_coords
                         "fare": fare,
                         "map_url": None
                     })
-            # Update dest_hub for last mile
-            dest_hub_coords = option['end']['coords'] if option['end']['coords'] else dest_hub_coords
-            dest_hub_display = option['end']['name']
-        # If no MTC routes found, try fallback to Chennai Central
-        if not all_options:
-            fallback_stop = "CHENNAI CENTRAL"
-            fallback_coords = get_stop_coordinates(fallback_stop)
-            if cache_key not in mtc_route_cache:
-                all_options, start_bus, end_bus = find_mtc_routes(mtc_start, fallback_stop, mtc_start_coords, fallback_coords)
-                mtc_route_cache[cache_key] = (all_options, start_bus, end_bus)
-            else:
-                all_options, start_bus, end_bus = mtc_route_cache[cache_key]
-            for option in all_options[:1]:
-                fare = (option['min_fare'], option['max_fare'])
-                if option['type'] == 'direct':
-                    route_key = option['route']
-                    if route_key not in seen_routes:
-                        seen_routes.add(route_key)
-                        steps.append({
-                            "mode": "bus",
-                            "description": f"MTC Bus {option['route']} to Chennai Central",
-                            "distance_km": None,
-                            "fare": fare,
-                            "map_url": None
-                        })
-                else:
-                    route_key = (option['route1'], option['route2'], option['transfer_point'])
-                    if route_key not in seen_routes:
-                        seen_routes.add(route_key)
-                        steps.append({
-                            "mode": "bus",
-                            "description": f"MTC Bus {option['route1']} to {option['transfer_point']}, then Bus {option['route2']} to Chennai Central",
-                            "distance_km": None,
-                            "fare": fare,
-                            "map_url": None
-                        })
-                dest_hub_coords = option['end']['coords'] if option['end']['coords'] else dest_hub_coords
-                dest_hub_display = "Chennai Central"
+                    # Update destination coordinates for final last mile
+                    if option['end'].get('coords'):
+                        dest_hub_coords = option['end']['coords']
+                        dest_hub_display = option['end']['name']
 
-    # Last mile (from final hub/stop to destination)
+    # ====== FINAL LAST MILE ======
     last_mile_dist = geodesic(dest_hub_coords, dest_coords).km
     last_mode = "walk" if last_mile_dist <= 1 else "auto"
     last_mode_text = "Walk" if last_mode == "walk" else "Auto"

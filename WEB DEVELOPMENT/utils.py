@@ -1,13 +1,10 @@
 import re
 import math
-import time
 import logging
 import requests
 from geopy.geocoders import Photon, Nominatim
 from geopy.distance import geodesic
 from geopy.exc import GeocoderUnavailable, GeocoderTimedOut
-import overpy
-import PyPDF2
 
 # Initialize geocoders
 photon_geolocator = Photon(user_agent="transport_finder_v4", domain="photon.komoot.io")
@@ -273,78 +270,7 @@ def find_best_bus_stand(city_name, reference_coords):
     
     return best_stand
 
-def extract_station_codes(pdf_path):
-    """Extract station names and codes from the PDF"""
-    station_data = {}
-    logging.info(f"Extracting station codes from: {pdf_path}")
-    
-    try:
-        with open(pdf_path, 'rb') as file:
-            reader = PyPDF2.PdfReader(file)
-            logging.info(f"PDF has {len(reader.pages)} pages")
-            
-            for page in reader.pages:
-                text = page.extract_text()
-                if not text:
-                    continue
-                    
-                # Split into lines and process
-                lines = text.split('\n')
-                for line in lines:
-                    line = line.strip()
-                    if not line or re.match(r'Page \d+', line):
-                        continue
-                    
-                    # Handle multi-line station names
-                    if not re.search(r'[A-Z]{3,5}$', line):
-                        continue
-                        
-                    # Extract station code (last 3-5 uppercase letters)
-                    parts = re.split(r'\s{2,}', line)
-                    if len(parts) < 2:
-                        continue
-                        
-                    # Last part is the code
-                    code = parts[-1].strip()
-                    name = ' '.join(parts[:-1]).strip()
-                    
-                    if name and code and len(code) >= 2:
-                        station_data[name.upper()] = code
-                        
-        logging.info(f"Loaded {len(station_data)} station codes from PDF")
-        return station_data
-    except Exception as e:
-        logging.error(f"Error extracting station codes: {e}")
-        return {}
 
-def clean_station_name(name):
-    """Normalize station names for matching"""
-    if not name:
-        return ""
-    name = name.upper().strip()
-    # Remove common suffixes and special characters
-    name = re.sub(r'\b(JUNCTION|STATION|RAILWAY STATION|JN|STN)\b', '', name)
-    name = re.sub(r'[^A-Z0-9 ]', '', name)  # Keep only alphanumeric and space
-    name = re.sub(r'\s+', ' ', name).strip()
-    return name
-
-def search_station(station_data, query):
-    """Search for a station by name with transliteration support"""
-    query = clean_station_name(query)
-    logging.info(f"Searching station: {query}")
-
-    # Try exact match first
-    if query in station_data:
-        return [(query, station_data[query])]
-        
-    # Try partial matches
-    results = []
-    for name, code in station_data.items():
-        clean_name = clean_station_name(name)
-        if query in clean_name:
-            results.append((name, code))
-        
-    return results
 
 def get_auto_fare(distance_km, is_night=False):
     """Calculate auto fare based on distance and time"""

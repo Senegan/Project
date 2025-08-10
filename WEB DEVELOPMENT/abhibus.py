@@ -101,7 +101,7 @@ def scrape_abhibus_results(search_url):
     try:
         # Configure Edge service with logging
         service = EdgeService(
-            executable_path=r'S:\Project\transp1\webdriver\msedgedriver.exe',
+            executable_path=r'S:\Project\example\webdriver\msedgedriver.exe',
             service_args=['--verbose']
         )
         
